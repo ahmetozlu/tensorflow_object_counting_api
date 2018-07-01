@@ -33,14 +33,16 @@ from utils.string_utils import custom_string_util
 from utils.image_utils import image_saver
 
 #  predicted_speed predicted_color module - import
-from utils.speed_and_direction_prediction_module import speed_prediction
+from utils.object_counting_module import object_counter
 
 # color recognition module - import
 from utils.color_recognition_module import color_recognition_api
 
 # Variables
 is_vehicle_detected = [0]
-ROI_POSITION = 200
+ROI_POSITION = [0]
+DEVIATION = [0]
+is_color_recognition_enable = [0]
 
 _TITLE_LEFT_MARGIN = 10
 _TITLE_TOP_MARGIN = 10
@@ -181,9 +183,11 @@ def draw_bounding_box_on_image(current_frame_number,image,
   detected_vehicle_image = image_temp[int(top):int(bottom), int(left):int(right)]
 
   '''if(bottom > ROI_POSITION): # if the vehicle get in ROI area, vehicle predicted_speed predicted_color algorithms are called - 200 is an arbitrary value, for my case it looks very well to set position of ROI line at y pixel 200'''
-  predicted_direction, is_vehicle_detected, update_csv = speed_prediction.predict_speed(top, bottom, right, left, detected_vehicle_image, ROI_POSITION, ROI_POSITION+5, ROI_POSITION+10)
+  predicted_direction, is_vehicle_detected, update_csv = object_counter.count_objects(top, bottom, right, left, detected_vehicle_image, ROI_POSITION[0], ROI_POSITION[0]+DEVIATION[0], ROI_POSITION[0]+(DEVIATION[0]*2))
 
-  #predicted_color = color_recognition_api.color_recognition(detected_vehicle_image)
+  if(1 in is_color_recognition_enable):
+    predicted_color = color_recognition_api.color_recognition(detected_vehicle_image)
+    print ("sa")
   
   try:
     font = ImageFont.truetype('arial.ttf', 16)
@@ -193,10 +197,13 @@ def draw_bounding_box_on_image(current_frame_number,image,
   # If the total height of the display strings added to the top of the bounding
   # box exceeds the top of the image, stack the strings below the bounding box
   # instead of above.
-  #display_str_list[0] = predicted_color + " " + display_str_list[0]
-  display_str_list[0] = display_str_list[0]
-  #csv_line = predicted_color + "," + str (predicted_direction) # csv line created
-  csv_line = str (predicted_direction) # csv line created
+  if(1 in is_color_recognition_enable):
+    display_str_list[0] = predicted_color + " " + display_str_list[0]
+    csv_line = predicted_color + "," + str (predicted_direction) # csv line created
+  else:
+    display_str_list[0] = display_str_list[0]
+    csv_line = str (predicted_direction) # csv line created
+  
   display_str_heights = [font.getsize(ds)[1] for ds in display_str_list]
 
   # Each display_str has a top and bottom margin of 0.05x.
@@ -413,12 +420,15 @@ def draw_mask_on_image_array(image, mask, color='red', alpha=0.7):
 
 
 def visualize_boxes_and_labels_on_image_array(current_frame_number,
-                                              image, 
+                                              image,
                                               mode,
+                                              color_recognition_status,
                                               boxes,
                                               classes,
                                               scores,
                                               category_index,
+                                              y_reference=None,
+                                              deviation=None,
                                               instance_masks=None,
                                               keypoints=None,
                                               use_normalized_coordinates=False,
@@ -464,7 +474,10 @@ def visualize_boxes_and_labels_on_image_array(current_frame_number,
   # that correspond to the same location.
   csv_line_util = "not_available"
   counter = 0
+  ROI_POSITION.insert(0,y_reference)
+  DEVIATION.insert(0,deviation)
   is_vehicle_detected = []
+  is_color_recognition_enable.insert(0,color_recognition_status)
   box_to_display_str_map = collections.defaultdict(list)
   box_to_color_map = collections.defaultdict(str)
   box_to_instance_masks_map = {}

@@ -23,7 +23,6 @@ from matplotlib import pyplot as plt
 from PIL import Image
 
 # Object detection imports
-from utils import label_map_util
 from utils import visualization_utils as vis_util
 from utils import backbone
 
@@ -37,29 +36,26 @@ if tf.__version__ < '1.4.0':
   raise ImportError('Please upgrade your tensorflow installation to v1.4.* or later!')
 
 # input video
-cap = cv2.VideoCapture('sub-1504614469486.mp4')
+cap = cv2.VideoCapture('vokoscreen-2018-07-01_20-44-15.avi')
 
 # Variables
 total_passed_vehicle = 0 # using it to count vehicles
 
 # By default I use an "SSD with Mobilenet" model here. See the detection model zoo (https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md) for a list of other models that can be run out-of-the-box with varying speeds and accuracies.
 # What model to download.
-PATH_TO_LABELS, NUM_CLASSES, detection_graph = backbone.set_model('ssd_mobilenet_v1_coco_2017_11_17')
-
-# Loading label map
-# Label maps map indices to category names, so that when our convolution network predicts 5, we know that this corresponds to airplane. Here I use internal utility functions, but anything that returns a dictionary mapping integers to appropriate string labels would be fine
-label_map = label_map_util.load_labelmap(PATH_TO_LABELS)
-categories = label_map_util.convert_label_map_to_categories(label_map, max_num_classes=NUM_CLASSES, use_display_name=True)
-category_index = label_map_util.create_category_index(categories)
+PATH_TO_LABELS, NUM_CLASSES, detection_graph, category_index = backbone.set_model('ssd_mobilenet_v1_coco_2017_11_17')
 
 # Detection
-def object_detection_function(mode, y_min=None, y_max=None):
+def object_detection_function(mode, color_recognition_status, y_reference, deviation):
         total_passed_vehicle = 0
         speed = "waiting..."
         direction = "waiting..."
         size = "waiting..."
         color = "waiting..."
         counting_mode = "..."
+        width_heigh_taken = True
+        height = 0
+        width = 0
         with detection_graph.as_default():
           with tf.Session(graph=detection_graph) as sess:
             # Definite input and output Tensors for detection_graph
@@ -77,6 +73,10 @@ def object_detection_function(mode, y_min=None, y_max=None):
             # for all the frames that are extracted from input video
             while(cap.isOpened()):
                 ret, frame = cap.read()
+  
+                if (width_heigh_taken == True and mode == 0):
+                  width_heigh_taken = False
+                  height, width = frame.shape[:2]
 
                 if not  ret:
                     print("end of the video file...")
@@ -100,10 +100,13 @@ def object_detection_function(mode, y_min=None, y_max=None):
                     counter, csv_line = vis_util.visualize_boxes_and_labels_on_image_array(cap.get(1),
 		    input_frame,
                     mode,
+                    color_recognition_status,                    
 		    np.squeeze(boxes),
 		    np.squeeze(classes).astype(np.int32),
 		    np.squeeze(scores),
 		    category_index,
+                    y_reference=y_reference,
+                    deviation=deviation,
 		    use_normalized_coordinates=True,
 		    line_thickness=4)
                 
@@ -113,27 +116,30 @@ def object_detection_function(mode, y_min=None, y_max=None):
 
                     # when the vehicle passed over line and counted, make the color of ROI line green
                     if(counter == 1):
-                            cv2.line(input_frame,(0,200),(640,200),(0,255,0),5)
+                            cv2.line(input_frame,(0,y_reference),(width,y_reference),(0,255,0),5)
                     else:
-                            cv2.line(input_frame,(0,200),(640,200),(0,0,255),5)
+                            cv2.line(input_frame,(0,y_reference),(width,y_reference),(0,0,255),5)
 
                     # insert information text to video frame
-                    cv2.rectangle(input_frame, (10, 275), (230, 337), (180, 132, 109), -1)
-                    cv2.putText(input_frame,"ROI Line", (545, 190), font, 0.6,(0,0,255),2,cv2.LINE_AA)
-                    cv2.putText(input_frame,"LAST PASSED VEHICLE INFO", (11, 290), font, 0.5, (255,255, 255), 1,cv2.FONT_HERSHEY_SIMPLEX)
-                    cv2.putText(input_frame,"-Movement Direction: " + direction, (14, 302), font, 0.4, (255,255, 255), 1,cv2.FONT_HERSHEY_COMPLEX_SMALL)
-                    cv2.putText(input_frame,"-Speed(km/h): " + speed, (14, 312), font, 0.4, (255, 255, 255), 1,cv2.FONT_HERSHEY_COMPLEX_SMALL)
-                    cv2.putText(input_frame,"-Color: " + color, (14, 322), font, 0.4, (255,255, 255), 1,cv2.FONT_HERSHEY_COMPLEX_SMALL)
-                    cv2.putText(input_frame,"-Vehicle Size/Type: " + size, (14, 332), font, 0.4, (255, 255, 255), 1,cv2.FONT_HERSHEY_COMPLEX_SMALL)
+                    #cv2.rectangle(input_frame, (10, 275), (230, 337), (180, 132, 109), -1)
+                    cv2.putText(input_frame,"ROI Line", (width-200, y_reference-10), font, 0.6,(0,0,255),2,cv2.LINE_AA)
+                    #cv2.putText(input_frame,"LAST PASSED VEHICLE INFO", (11, 290), font, 0.5, (255,255, 255), 1,cv2.FONT_HERSHEY_SIMPLEX)
+                    #cv2.putText(input_frame,"-Movement Direction: " + direction, (14, 302), font, 0.4, (255,255, 255), 1,cv2.FONT_HERSHEY_COMPLEX_SMALL)
+                    #cv2.putText(input_frame,"-Speed(km/h): " + speed, (14, 312), font, 0.4, (255, 255, 255), 1,cv2.FONT_HERSHEY_COMPLEX_SMALL)
+                    #cv2.putText(input_frame,"-Color: " + color, (14, 322), font, 0.4, (255,255, 255), 1,cv2.FONT_HERSHEY_COMPLEX_SMALL)
+                    #cv2.putText(input_frame,"-Vehicle Size/Type: " + size, (14, 332), font, 0.4, (255, 255, 255), 1,cv2.FONT_HERSHEY_COMPLEX_SMALL)
 
                 elif (mode == 1):
                     counter, csv_line, counting_mode = vis_util.visualize_boxes_and_labels_on_image_array(cap.get(1),
                                                                                                           input_frame,
 			                                                                                  mode,
+                                                                                                          color_recognition_status,
                                                                                                           np.squeeze(boxes),
                                                                                                           np.squeeze(classes).astype(np.int32),
                                                                                                           np.squeeze(scores),
                                                                                                           category_index,
+                                                                                                          y_reference=y_reference,
+                                                                                                          deviation=deviation,
                                                                                                           use_normalized_coordinates=True,
                                                                                                           line_thickness=4)
                     if(len(counting_mode) == 0):
@@ -154,4 +160,4 @@ def object_detection_function(mode, y_min=None, y_max=None):
             cap.release()
             cv2.destroyAllWindows()
             
-object_detection_function(0)
+object_detection_function(1, 0, 250, 15)
