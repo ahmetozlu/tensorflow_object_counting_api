@@ -11,12 +11,6 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 
 If you use the Tensorflow Object Counting API for a research publication, please consider citing []().
 
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/22610163/42241885-ce638c46-7f14-11e8-83b0-524508edb2e7.png" | width = 100>
-</p>
-
-
-
 ## Theory
 
 ## Project Demo
