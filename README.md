@@ -11,6 +11,8 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 
 **DEVELOPMENT IS ON PROGRESS! DETAILED API DOCUMENTATION AND SAMPLE JUPYTER NOTEBOOKS THAT EXPLAIN BASIC USAGES OF API WILL BE SHARED SOON!**
 
+***You can find a sample project - case study that uses TensorFlow Object Counting API in [this repo](https://github.com/ahmetozlu/vehicle_counting_tensorflow).***
+
 Here are some cool capabilities of TensorFlow Object Counting API:
 
 - Detect just targeted object/s
@@ -29,8 +31,6 @@ Here are some cool architectural design features of TensorFlow Object Counting A
 - Scalable and well-designed framework, easy usage
 - Gets "Pythonic Approach" advantages
 - It supports REST Architecture and RESTful Web Services
-
-***You can find a sample project - case study that uses TensorFlow Object Counting API in [this repo](https://github.com/ahmetozlu/vehicle_counting_tensorflow).***
 
 ## Theory
 
@@ -56,11 +56,7 @@ Here are some cool architectural design features of TensorFlow Object Counting A
 
 Source video is read frame by frame with OpenCV. Each frames is processed by ["SSD with Mobilenet" model](http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17) is developed on TensorFlow. This is a loop that continue working till reaching end of the video. The main pipeline of the tracker is given at the above Figure.
 
-### Model
-
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/22610163/41813283-79528968-773b-11e8-8069-0494cd59a813.png" | width=700>
-</p>
+### Models
 
 By default I use an ["SSD with Mobilenet" model](http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17) in this project. You can find more information about SSD in [here](https://towardsdatascience.com/understanding-ssd-multibox-real-time-object-detection-in-deep-learning-495ef744fab). See the [detection model zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md) for a list of other models that can be run out-of-the-box with varying speeds and accuracies. You can easily select, download and use the models that is suitable for your requeirements using TensorFlow Object Detection API.
 
@@ -72,8 +68,9 @@ Demo video of the project is available on [My YouTube Channel](https://www.youtu
 
 ### Dependencies
 
-Tensorflow Object Detection API depends on the following libraries:
+Tensorflow Object Counting API depends on the following libraries:
 
+- TensorFlow Object Detection API
 - Protobuf 3.0.0
 - Python-tk
 - Pillow 1.0
@@ -86,7 +83,9 @@ Tensorflow Object Detection API depends on the following libraries:
 - contextlib2
 - cocoapi
 
-For detailed steps to install Tensorflow, follow the [Tensorflow installation instructions](https://www.tensorflow.org/install/). For more information, please see [this](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md).
+For detailed steps to install Tensorflow, follow the [Tensorflow installation instructions](https://www.tensorflow.org/install/). 
+
+TensorFlow Object Detection API have to be installed to run TensorFlow Object Counting API, for more information, please see [this](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md).
 
 ## Citation
 If you use this code for your publications, please cite it as:
