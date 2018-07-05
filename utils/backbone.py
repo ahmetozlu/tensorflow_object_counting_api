@@ -47,4 +47,4 @@ def set_model(model_name):
 	categories = label_map_util.convert_label_map_to_categories(label_map, max_num_classes=num_classes, use_display_name=True)
 	category_index = label_map_util.create_category_index(categories)
 
-	return path_to_labels, num_classes, detection_graph, category_index
+	return detection_graph, category_index

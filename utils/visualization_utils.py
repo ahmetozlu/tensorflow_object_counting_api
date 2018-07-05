@@ -43,6 +43,7 @@ is_vehicle_detected = [0]
 ROI_POSITION = [0]
 DEVIATION = [0]
 is_color_recognition_enable = [0]
+mode_number = [0]
 
 _TITLE_LEFT_MARGIN = 10
 _TITLE_TOP_MARGIN = 10
@@ -183,11 +184,11 @@ def draw_bounding_box_on_image(current_frame_number,image,
   detected_vehicle_image = image_temp[int(top):int(bottom), int(left):int(right)]
 
   '''if(bottom > ROI_POSITION): # if the vehicle get in ROI area, vehicle predicted_speed predicted_color algorithms are called - 200 is an arbitrary value, for my case it looks very well to set position of ROI line at y pixel 200'''
-  predicted_direction, is_vehicle_detected, update_csv = object_counter.count_objects(top, bottom, right, left, detected_vehicle_image, ROI_POSITION[0], ROI_POSITION[0]+DEVIATION[0], ROI_POSITION[0]+(DEVIATION[0]*2))
+  '''if(0 in mode_number):
+    predicted_direction, is_vehicle_detected, update_csv = object_counter.count_objects(top, bottom, right, left, detected_vehicle_image, ROI_POSITION[0], ROI_POSITION[0]+DEVIATION[0], ROI_POSITION[0]+(DEVIATION[0]*2))'''
 
   if(1 in is_color_recognition_enable):
-    predicted_color = color_recognition_api.color_recognition(detected_vehicle_image)
-    print ("sa")
+    predicted_color = color_recognition_api.color_recognition(detected_vehicle_image)    
   
   try:
     font = ImageFont.truetype('arial.ttf', 16)
@@ -477,6 +478,7 @@ def visualize_boxes_and_labels_on_image_array(current_frame_number,
   ROI_POSITION.insert(0,y_reference)
   DEVIATION.insert(0,deviation)
   is_vehicle_detected = []
+  mode_number.insert(0,mode)
   is_color_recognition_enable.insert(0,color_recognition_status)
   box_to_display_str_map = collections.defaultdict(list)
   box_to_color_map = collections.defaultdict(str)
