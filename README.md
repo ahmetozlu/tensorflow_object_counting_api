@@ -15,7 +15,7 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 
 ***You can find a sample project - case study that uses TensorFlow Object Counting API in [this repo](https://github.com/ahmetozlu/vehicle_counting_tensorflow).***
 
-**You can find basic usage on [usage](#usage) and please see [wiki](https://github.com/ahmetozlu/tensorflow_object_counting_api/wiki/API-Documentation) for detailed documentation.***
+**You can find basic usage on [usage](#usage) and please see [wiki](https://github.com/ahmetozlu/tensorflow_object_counting_api/wiki/API-Documentation) for detailed documentation.**
 
 ---
 
