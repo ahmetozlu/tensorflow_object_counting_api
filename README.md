@@ -9,9 +9,15 @@ The TensorFlow Object Counting API is an open source framework built on top of T
   <img src="https://user-images.githubusercontent.com/22610163/42241094-14163cc8-7f12-11e8-83ed-68021b5e3b33.gif" | width=430><img src="https://user-images.githubusercontent.com/22610163/42237904-d6a3ac22-7f07-11e8-88f8-5f21430d9503.gif" | width=430>
 </p>
 
+---
+
 **DEVELOPMENT IS ON PROGRESS! DETAILED API DOCUMENTATION AND SAMPLE JUPYTER NOTEBOOKS THAT EXPLAIN BASIC USAGES OF API WILL BE SHARED SOON!**
 
 ***You can find a sample project - case study that uses TensorFlow Object Counting API in [this repo](https://github.com/ahmetozlu/vehicle_counting_tensorflow).***
+
+** You can find basic usage on [usage](#usage) and please see [wiki](https://github.com/ahmetozlu/tensorflow_object_counting_api/wiki/API-Documentation) for detailed documentation.
+
+---
 
 Here are some cool capabilities of TensorFlow Object Counting API:
 
@@ -20,7 +26,7 @@ Here are some cool capabilities of TensorFlow Object Counting API:
 - Predict color of the targeted object/s
 - Predict speed of the targeted object/s
 - Print out the detection-counting result in a .csv file as an analysis report
-- Save and store detected objects as new images under [detected object folder](www)
+- Save and store detected objects as new images under [detected_object folder](www)
 - Select, download  and use state of the art [models that are trained by Google Brain Team](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md)
 - Save detection and counting results as a new video or show detection and counting results in real time
 - Process images or videos depending your requirements
@@ -99,9 +105,9 @@ First of all, please be sure that you have completed the installation of the nec
  
        object_detection_function(input_video, detection_graph, category_index, is_color_recognition_enabled)
        
-You can see the sample usage in [test.py]()
+You can see the sample usage in [test.py](https://github.com/ahmetozlu/tensorflow_object_counting_api/blob/master/test.py)
     
-Please see the [wiki]() for detailed documentation.
+Please see the [wiki](https://github.com/ahmetozlu/tensorflow_object_counting_api/wiki/API-Documentation) for detailed documentation.
 
 ## Citation
 If you use this code for your publications, please cite it as:
