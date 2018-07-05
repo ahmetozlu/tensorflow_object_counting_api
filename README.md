@@ -87,6 +87,22 @@ For detailed steps to install Tensorflow, follow the [Tensorflow installation in
 
 TensorFlow Object Detection API have to be installed to run TensorFlow Object Counting API, for more information, please see [this](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md).
 
+## Usage
+
+First of all, please be sure that you have completed the installation of the necessary packages. The information are given on [Installation part](#installation). 
+
+- After the setup, just import api on your main class:
+
+      from api import object_counting_api
+  
+ - And call the object_counting_function:
+ 
+       object_detection_function(input_video, detection_graph, category_index, is_color_recognition_enabled)
+       
+You can see the sample usage in [test.py]()
+    
+Please see the [wiki]() for detailed documentation.
+
 ## Citation
 If you use this code for your publications, please cite it as:
 
