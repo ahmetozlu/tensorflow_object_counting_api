@@ -15,9 +15,78 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 
 **You can find a sample project - case study that uses TensorFlow Object Counting API in [this repo](https://github.com/ahmetozlu/vehicle_counting_tensorflow).**
 
-**You can find basic usage on [usage](#usage) and please see [wiki](https://github.com/ahmetozlu/tensorflow_object_counting_api/wiki/API-Documentation) for detailed documentation.**
+---
+
+## USAGE
+
+1.) For detecting, tracking and counting the targeted object/s with disabled color prediction
+ 
+ ***Code: the targeted object is bicycle***
+ 
+    targeted_objects = "bicycle"
+    object_counting_api.targeted_object_counting(input_video, detection_graph, category_index, is_color_prediction_enabled, targeted_objects)
+    
+ ***Result: the targeted object is bicycle***
+ 
+ <p align="center">
+  <img src="https://user-images.githubusercontent.com/22610163/42411751-1ae1d3f0-820a-11e8-8465-9ec9b44d4fe7.gif" | width=700>
+</p>
+
+***Code: the targeted object is person***
+
+    targeted_objects = "person"
+    object_counting_api.targeted_object_counting(input_video, detection_graph, category_index, is_color_prediction_enabled, targeted_objects)
+ 
+ ***Result: the targeted object is person***
+
+ <p align="center">
+  <img src="https://user-images.githubusercontent.com/22610163/42411749-1a80362c-820a-11e8-864e-acdeed85b1f2.gif" | width=700>
+</p>
+
+***Code: detecting, counting and tracking all the objects***
+
+    targeted_objects = "person"
+    object_counting_api.targeted_object_counting(input_video, detection_graph, category_index, is_color_prediction_enabled, targeted_objects)
+ 
+ ***Result: detecting, counting and tracking all the objects***
+
+ <p align="center">
+  <img src="https://user-images.githubusercontent.com/22610163/42411750-1aae0d72-820a-11e8-8726-4b57480f4cb8.gif" | width=700>
+</p>
+ 
+ 
+2.) For detecting, tracking and counting all the objects with disabled color prediction
+
+***Code: detecting, counting and tracking all the objects with disabled color prediction***
+    
+    is_color_prediction_enabled = 0
+    object_counting_api.object_counting(input_video, detection_graph, category_index, is_color_prediction_enabled)
+    
+ ***Result: detecting, counting and tracking all the objects with disabled color prediction***
+
+ <p align="center">
+  <img src="https://user-images.githubusercontent.com/22610163/42411748-1a5ab49c-820a-11e8-8648-d78ffa08c28c.gif" | width=700>
+</p>
+
+
+***Code: detecting, counting and tracking all the objects with enabled color prediction***
+
+    is_color_prediction_enabled = 1
+    object_counting_api.object_counting(input_video, detection_graph, category_index, is_color_prediction_enabled)
+    
+ ***Result: detecting, counting and tracking all the objects with enabled color prediction***
+
+ <p align="center">
+  <img src="https://user-images.githubusercontent.com/22610163/42411747-1a215e4a-820a-11e8-8aef-faa500df6836.gif" | width=700>
+</p>
 
 ---
+
+**For sample usage, please see [test.py](https://github.com/ahmetozlu/tensorflow_object_counting_api/blob/master/test.py).**
+
+---
+
+# General Capabilities of The API
 
 Here are some cool capabilities of TensorFlow Object Counting API:
 
