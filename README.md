@@ -49,8 +49,8 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 
 ***Code: detecting, counting and tracking all the objects***
 
-    targeted_objects = "person"
-    object_counting_api.targeted_object_counting(input_video, detection_graph, category_index, is_color_prediction_enabled, targeted_objects)
+    is_color_prediction_enabled = 0
+    object_counting_api.object_counting(input_video, detection_graph, category_index, is_color_prediction_enabled)
  
  ***Result: detecting, counting and tracking all the objects***
 
