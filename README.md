@@ -15,7 +15,7 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 
 - ***ROI Line version for object counting will be added!***
 
-- **Detailed API documentation and sample jupyter notebooks that explain basic usages of API will be added!**
+- ***Detailed API documentation and sample jupyter notebooks that explain basic usages of API will be added!***
 
 **You can find a sample project - case study that uses TensorFlow Object Counting API in [this repo](https://github.com/ahmetozlu/vehicle_counting_tensorflow).**
 
@@ -86,11 +86,11 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 
 ---
 
-**For sample usage, please see [test.py](https://github.com/ahmetozlu/tensorflow_object_counting_api/blob/master/test.py).**
+**For sample usages, please see [test.py](https://github.com/ahmetozlu/tensorflow_object_counting_api/blob/master/test.py).**
 
 ---
 
-# General Capabilities of The API
+## General Capabilities of The TensorFlow Object Counting API
 
 Here are some cool capabilities of TensorFlow Object Counting API:
 
@@ -137,7 +137,9 @@ Source video is read frame by frame with OpenCV. Each frames is processed by ["S
 
 ### Models
 
-By default I use an ["SSD with Mobilenet" model](http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17) in this project. You can find more information about SSD in [here](https://towardsdatascience.com/understanding-ssd-multibox-real-time-object-detection-in-deep-learning-495ef744fab). See the [detection model zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md) for a list of other models that can be run out-of-the-box with varying speeds and accuracies. You can easily select, download and use the models that is suitable for your requeirements using TensorFlow Object Detection API.
+By default I use an ["SSD with Mobilenet" model](http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17) in this project. You can find more information about SSD in [here](https://towardsdatascience.com/understanding-ssd-multibox-real-time-object-detection-in-deep-learning-495ef744fab). 
+
+Please, See the [detection model zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md) for a list of other models that can be run out-of-the-box with varying speeds and accuracies. You can easily select, download and use state-of-the-art models that are suitable for your requeirements using TensorFlow Object Detection API.
 
 ## Project Demo
 
