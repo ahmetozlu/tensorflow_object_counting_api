@@ -428,6 +428,7 @@ def visualize_boxes_and_labels_on_image_array(current_frame_number,
                                               classes,
                                               scores,
                                               category_index,
+					      targeted_objects=None,
                                               y_reference=None,
                                               deviation=None,
                                               instance_masks=None,
@@ -517,20 +518,48 @@ def visualize_boxes_and_labels_on_image_array(current_frame_number,
   # Draw all boxes onto image.
   for box, color in box_to_color_map.items():
     ymin, xmin, ymax, xmax = box
-    if instance_masks is not None:
+    '''if instance_masks is not None:
       draw_mask_on_image_array(
           image,
           box_to_instance_masks_map[box],
           color=color
-      )
+      )'''
         
     display_str_list=box_to_display_str_map[box]
 
-    if(mode == 1):
+    if(mode == 1 and targeted_objects == None):
       counting_mode = counting_mode + str(display_str_list)
 
-    # we are interested just vehicles (i.e. cars and trucks)
-    if (("car" not in display_str_list[0]) or ("truck" not in display_str_list[0]) or ("bus" not in display_str_list[0])):
+    elif(mode == 1 and targeted_objects in display_str_list[0]):
+      counting_mode = counting_mode + str(display_str_list)
+
+    if ((targeted_objects != None) and (targeted_objects in display_str_list[0])):
+            if instance_masks is not None:
+              draw_mask_on_image_array(image, box_to_instance_masks_map[box], color=color)
+        
+            is_vehicle_detected, csv_line, update_csv = draw_bounding_box_on_image_array(current_frame_number,
+                image,
+                ymin,
+                xmin,
+                ymax,
+                xmax,
+                color=color,
+                thickness=line_thickness,
+                display_str_list=box_to_display_str_map[box],
+                use_normalized_coordinates=use_normalized_coordinates) 
+      
+            if keypoints is not None:
+              draw_keypoints_on_image_array(
+                  image,
+                  box_to_keypoints_map[box],
+                  color=color,
+                  radius=line_thickness / 2,
+                  use_normalized_coordinates=use_normalized_coordinates)
+
+    elif (targeted_objects == None):
+            if instance_masks is not None:
+              draw_mask_on_image_array(image, box_to_instance_masks_map[box], color=color)
+
             is_vehicle_detected, csv_line, update_csv = draw_bounding_box_on_image_array(current_frame_number,
                 image,
                 ymin,
