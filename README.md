@@ -6,7 +6,6 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 <p align="center">
   <img src="https://user-images.githubusercontent.com/22610163/43166455-45964aac-8f9f-11e8-9ddf-f71d05f0c7f5.gif" | width=430> <img src="https://user-images.githubusercontent.com/22610163/43166945-c0744de0-8fa0-11e8-8985-9f863c59e859.gif" | width=430>
 </p>
----
 
 ---
 ### Real-Time Counting Mode:
@@ -17,7 +16,6 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 <p align="center">
   <img src="https://user-images.githubusercontent.com/22610163/42241094-14163cc8-7f12-11e8-83ed-68021b5e3b33.gif" | width=430><img src="https://user-images.githubusercontent.com/22610163/42237904-d6a3ac22-7f07-11e8-88f8-5f21430d9503.gif" | width=430>
 </p>
----
 
 ---
 
