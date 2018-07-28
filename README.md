@@ -50,7 +50,7 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 
 ---
 
-**For sample usages, please see: [pedestrian_counting.py](https://github.com/ahmetozlu/tensorflow_object_counting_api/blob/master/pedestrian_counting.py)**
+**Source code of "pedestrian counting case-study": [pedestrian_counting.py](https://github.com/ahmetozlu/tensorflow_object_counting_api/blob/master/pedestrian_counting.py)**
 
 ---
 
@@ -73,7 +73,7 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 
 ---
 
-**For sample usages, please see: [vehicle_counting.py](https://github.com/ahmetozlu/tensorflow_object_counting_api/blob/master/vehicle_counting.py)**
+**Source code of "vehicle counting case-study": [vehicle_counting.py](https://github.com/ahmetozlu/tensorflow_object_counting_api/blob/master/vehicle_counting.py)**
 
 ---
 
@@ -84,7 +84,12 @@ The TensorFlow Object Counting API is an open source framework built on top of T
  *Usage of "the targeted object is bicycle":*
  
     targeted_objects = "bicycle"
-    object_counting_api.targeted_object_counting(input_video, detection_graph, category_index, is_color_prediction_enabled, targeted_objects)
+    fps = 24 # change it with your input video fps
+    width = 854 # change it with your input video width
+    height = 480 # change it with your input vide height
+    is_color_recognition_enabled = 0
+
+    object_counting_api.targeted_object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled, targeted_objects, fps, width, height) # targeted objects counting
     
  *Result of "the targeted object is bicycle":*
  
@@ -95,7 +100,12 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 *Usage of "the targeted object is person":*
 
     targeted_objects = "person"
-    object_counting_api.targeted_object_counting(input_video, detection_graph, category_index, is_color_prediction_enabled, targeted_objects)
+    fps = 24 # change it with your input video fps
+    width = 854 # change it with your input video width
+    height = 480 # change it with your input vide height
+    is_color_recognition_enabled = 0
+
+    object_counting_api.targeted_object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled, targeted_objects, fps, width, height) # targeted objects counting
  
  *Result of "the targeted object is person":*
 
@@ -106,7 +116,11 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 *Usage of "detecting, counting and tracking all the objects":*
 
     is_color_prediction_enabled = 0
-    object_counting_api.object_counting(input_video, detection_graph, category_index, is_color_prediction_enabled)
+    fps = 24 # change it with your input video fps
+    width = 854 # change it with your input video width
+    height = 480 # change it with your input vide height    
+
+    object_counting_api.object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled, fps, width, height) # counting all the objects
  
  *Result of "detecting, counting and tracking all the objects":*
 
@@ -120,7 +134,11 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 *Usage of detecting, counting and tracking "all the objects with disabled color prediction":*
     
     is_color_prediction_enabled = 0
-    object_counting_api.object_counting(input_video, detection_graph, category_index, is_color_prediction_enabled)
+    fps = 24 # change it with your input video fps
+    width = 854 # change it with your input video width
+    height = 480 # change it with your input vide height    
+
+    object_counting_api.object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled, fps, width, height) # counting all the objects
     
  *Result of detecting, counting and tracking "all the objects with disabled color prediction":*
 
@@ -132,7 +150,11 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 *Usage of detecting, counting and tracking "all the objects with enabled color prediction":*
 
     is_color_prediction_enabled = 1
-    object_counting_api.object_counting(input_video, detection_graph, category_index, is_color_prediction_enabled)
+    fps = 24 # change it with your input video fps
+    width = 854 # change it with your input video width
+    height = 480 # change it with your input vide height    
+
+    object_counting_api.object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled, fps, width, height) # counting all the objects
     
  *Result of detecting, counting and tracking "all the objects with enabled color prediction":*
 
@@ -142,7 +164,7 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 
 ---
 
-**For sample usages, please see: [test.py](https://github.com/ahmetozlu/tensorflow_object_counting_api/blob/master/test.py)**
+**For sample usages of "Real-Time Counting Mode": [test.py](https://github.com/ahmetozlu/tensorflow_object_counting_api/blob/master/test.py)**
 
 ---
 
