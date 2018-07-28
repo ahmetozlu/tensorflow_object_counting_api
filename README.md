@@ -31,7 +31,7 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 
 ### 1.) Usage of "Cumulative Counting Mode"
 
-#### 1.1) For detecting, tracking and counting *the pedestrian* with disabled color prediction
+#### 1.1) For detecting, tracking and counting *the pedestrians* with disabled color prediction
 
 *Usage of "Cumulative Counting Mode" for the "pedestrian counting" case:*
 
@@ -54,7 +54,7 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 
 ---
 
-**1.2)** For detecting, tracking and counting *the vehicle* with enabled color prediction
+**1.2)** For detecting, tracking and counting *the vehicles* with enabled color prediction
 
 *Usage of "Cumulative Counting Mode" for the "vehicle counting" case:*
 
