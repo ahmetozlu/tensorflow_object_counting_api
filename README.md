@@ -256,7 +256,7 @@ If you use this code for your publications, please cite it as:
 
     @ONLINE{tfocapi,
         author = "Ahmet Özlü",
-        title  = "TensorFlow Object Counting API
+        title  = "TensorFlow Object Counting API"
         year   = "2018",
         url    = "https://github.com/ahmetozlu/tensorflow_object_counting_api"
     }
