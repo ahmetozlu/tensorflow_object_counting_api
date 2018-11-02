@@ -1,6 +1,10 @@
 # TensorFlow Object Counting API
 The TensorFlow Object Counting API is an open source framework built on top of TensorFlow that makes it easy to develop object counting systems!
 
+[![PyPI](https://img.shields.io/pypi/v/face_recognition.svg)](https://pypi.python.org/pypi/)
+[![Build Status](https://travis-ci.org/ageitgey/face_recognition.svg?branch=master)](https://travis-ci.org/ageitgey/face_recognition)
+[![Documentation Status](https://readthedocs.org/projects/face-recognition/badge/?version=latest)](http://readthedocs.io/en/latest/?badge=latest)
+
 ---
 ### Cumulative Counting Mode:
 <p align="center">
