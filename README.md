@@ -213,10 +213,10 @@ Here are some cool architectural design features of TensorFlow Object Counting A
 
 ## Theory
 
-### Architecture
+### System Architecture
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/22610163/42447990-5ef59ace-8384-11e8-8b0f-4a7522d47fc8.jpg" | width=700>
+  <img src="https://user-images.githubusercontent.com/22610163/47967175-a9d17880-e06b-11e8-8a8e-adf4d471416f.jpg">
 </p>
 
 - Object detection and classification have been developed on top of TensorFlow Object Detection API, [see](https://github.com/tensorflow/models/tree/master/research/object_detection) for more info.
@@ -283,4 +283,5 @@ Ahmet Özlü
 
 ## License
 This system is available under the MIT license. See the LICENSE file for more info.
+
 
