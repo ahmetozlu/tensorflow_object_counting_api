@@ -13,7 +13,7 @@ from utils import visualization_utils as vis_util
 # Variables
 total_passed_vehicle = 0  # using it to count vehicles
 
-def cumulative_object_counting_x_axis(input_video, detection_graph, category_index, is_color_recognition_enabled, fps, width, height, roi):
+def cumulative_object_counting_x_axis(input_video, detection_graph, category_index, is_color_recognition_enabled, fps, width, height, roi, deviation):
         total_passed_vehicle = 0
        
         #initialize .csv
@@ -80,7 +80,7 @@ def cumulative_object_counting_x_axis(input_video, detection_graph, category_ind
                                                                                                              np.squeeze(scores),
                                                                                                              category_index,
                                                                                                              x_reference = roi,
-                                                                                                             deviation=1,
+                                                                                                             deviation = deviation,
                                                                                                              use_normalized_coordinates=True,
                                                                                                              line_thickness=4)
                                
@@ -133,7 +133,7 @@ def cumulative_object_counting_x_axis(input_video, detection_graph, category_ind
             cap.release()
             cv2.destroyAllWindows()
 
-def cumulative_object_counting_y_axis(input_video, detection_graph, category_index, is_color_recognition_enabled, fps, width, height, roi):
+def cumulative_object_counting_y_axis(input_video, detection_graph, category_index, is_color_recognition_enabled, fps, width, height, roi, deviation):
         total_passed_vehicle = 0        
 
         #initialize .csv
@@ -200,7 +200,7 @@ def cumulative_object_counting_y_axis(input_video, detection_graph, category_ind
                                                                                                              np.squeeze(scores),
                                                                                                              category_index,
                                                                                                              y_reference = roi,
-                                                                                                             deviation=3,
+                                                                                                             deviation = deviation,
                                                                                                              use_normalized_coordinates=True,
                                                                                                              line_thickness=4)
 
