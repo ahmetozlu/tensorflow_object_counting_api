@@ -25,11 +25,9 @@ detection_graph, category_index = backbone.set_model('ssd_mobilenet_v1_coco_2017
 
 
 targeted_objects = "person" # (for counting targeted objects) change it with your targeted objects
-fps = 24 # change it with your input video fps
-width = 854 # change it with your input video width
-height = 480 # change it with your input vide height
+
 is_color_recognition_enabled = 0
 
-#object_counting_api.targeted_object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled, targeted_objects, fps, width, height) # targeted objects counting
+#object_counting_api.targeted_object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled, targeted_objects) # targeted objects counting
 
-object_counting_api.object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled, fps, width, height) # counting all the objects
+object_counting_api.object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled ) # counting all the objects

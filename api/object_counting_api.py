@@ -13,9 +13,13 @@ from utils import visualization_utils as vis_util
 # Variables
 total_passed_vehicle = 0  # using it to count vehicles
 
-def cumulative_object_counting_x_axis(input_video, detection_graph, category_index, is_color_recognition_enabled, fps, width, height, roi, deviation):
+def cumulative_object_counting_x_axis(input_video, detection_graph, category_index, is_color_recognition_enabled, roi, deviation):
         total_passed_vehicle = 0
-       
+        # input video
+        cap = cv2.VideoCapture(input_video)
+        height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+        fps = int(cap.get(cv2.CAP_PROP_FPS))
         #initialize .csv
         with open('object_counting_report.csv', 'w') as f:
                 writer = csv.writer(f)  
@@ -25,8 +29,7 @@ def cumulative_object_counting_x_axis(input_video, detection_graph, category_ind
         fourcc = cv2.VideoWriter_fourcc(*'XVID')
         output_movie = cv2.VideoWriter('the_output.avi', fourcc, fps, (width, height))
 
-        # input video
-        cap = cv2.VideoCapture(input_video)
+
 
         total_passed_vehicle = 0
         speed = "waiting..."
@@ -133,9 +136,13 @@ def cumulative_object_counting_x_axis(input_video, detection_graph, category_ind
             cap.release()
             cv2.destroyAllWindows()
 
-def cumulative_object_counting_y_axis(input_video, detection_graph, category_index, is_color_recognition_enabled, fps, width, height, roi, deviation):
+def cumulative_object_counting_y_axis(input_video, detection_graph, category_index, is_color_recognition_enabled, roi, deviation):
         total_passed_vehicle = 0        
-
+        # input video
+        cap = cv2.VideoCapture(input_video)
+        height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+        fps = int(cap.get(cv2.CAP_PROP_FPS))
         #initialize .csv
         with open('object_counting_report.csv', 'w') as f:
                 writer = csv.writer(f)  
@@ -144,9 +151,7 @@ def cumulative_object_counting_y_axis(input_video, detection_graph, category_ind
 
         fourcc = cv2.VideoWriter_fourcc(*'XVID')
         output_movie = cv2.VideoWriter('the_output.avi', fourcc, fps, (width, height))
-
-        # input video
-        cap = cv2.VideoCapture(input_video)
+ 
 
         total_passed_vehicle = 0
         speed = "waiting..."
@@ -253,7 +258,12 @@ def cumulative_object_counting_y_axis(input_video, detection_graph, category_ind
             cv2.destroyAllWindows()
 
 
-def object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled, fps, width, height):
+def object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled ):
+        # input video
+        cap = cv2.VideoCapture(input_video)
+        height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+        fps = int(cap.get(cv2.CAP_PROP_FPS))
         #initialize .csv
         with open('object_counting_report.csv', 'w') as f:
                 writer = csv.writer(f)  
@@ -263,9 +273,7 @@ def object_counting(input_video, detection_graph, category_index, is_color_recog
         fourcc = cv2.VideoWriter_fourcc(*'XVID')
         output_movie = cv2.VideoWriter('the_output.avi', fourcc, fps, (width, height))
 
-        # input video
-        cap = cv2.VideoCapture(input_video)
-
+ 
         total_passed_vehicle = 0
         speed = "waiting..."
         direction = "waiting..."
@@ -342,7 +350,12 @@ def object_counting(input_video, detection_graph, category_index, is_color_recog
             cap.release()
             cv2.destroyAllWindows()
 
-def targeted_object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled, targeted_object, fps, width, height):
+def targeted_object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled, targeted_object ):
+        # input video
+        cap = cv2.VideoCapture(input_video)
+        height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+        fps = int(cap.get(cv2.CAP_PROP_FPS))
         #initialize .csv
         with open('object_counting_report.csv', 'w') as f:
                 writer = csv.writer(f)  
@@ -490,4 +503,3 @@ def single_image_object_counting(input_video, detection_graph, category_index, i
         cv2.waitKey(0)
 
         return counting_mode       
-
