@@ -239,6 +239,8 @@ By default I use an ["SSD with Mobilenet" model](http://download.tensorflow.org/
 
 Please, See the [detection model zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md) for a list of other models that can be run out-of-the-box with varying speeds and accuracies. You can easily select, download and use state-of-the-art models that are suitable for your requeirements using TensorFlow Object Detection API.
 
+You can perform transfer learning on trained TensorFlow models to build your custom object counting systems!
+
 ## Project Demo
 
 Demo video of the project is available on [My YouTube Channel](https://www.youtube.com/watch?v=bas6c8d1JyU).
