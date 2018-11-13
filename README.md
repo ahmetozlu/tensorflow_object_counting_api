@@ -182,7 +182,7 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 ## General Capabilities of The TensorFlow Object Counting API
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/22610163/47966652-ef8b4280-e065-11e8-9fbc-9242a9b2cf10.jpg" | width = 720>
+  <img src="https://user-images.githubusercontent.com/22610163/48421361-6662c280-e76d-11e8-9680-ec86e245fdac.jpg" | width = 720>
 </p>
 
 Here are some cool capabilities of TensorFlow Object Counting API:
@@ -214,7 +214,7 @@ Here are some cool architectural design features of TensorFlow Object Counting A
 ### System Architecture
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/22610163/47967175-a9d17880-e06b-11e8-8a8e-adf4d471416f.jpg">
+  <img src="https://user-images.githubusercontent.com/22610163/48421362-6662c280-e76d-11e8-9b63-da9698626f75.jpg" | width=720>
 </p>
 
 - Object detection and classification have been developed on top of TensorFlow Object Detection API, [see](https://github.com/tensorflow/models/tree/master/research/object_detection) for more info.
