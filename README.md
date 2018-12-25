@@ -187,13 +187,13 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 
 Here are some cool capabilities of TensorFlow Object Counting API:
 
-- Detect just the targeted object/s
+- Detect just the targeted objects
 - Detect all the objects
-- Count just the targeted object/s
+- Count just the targeted objects
 - Count all the objects
-- Predict color of the targeted object/s
+- Predict color of the targeted objects
 - Predict color of all the objects
-- Predict speed of the targeted object/s
+- Predict speed of the targeted objects
 - Predict speed of all the objects
 - Print out the detection-counting result in a .csv file as an analysis report
 - Save and store detected objects as new images under [detected_object folder](www)
