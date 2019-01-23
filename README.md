@@ -20,7 +20,7 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 </p>
 
 ---
-### Image Counting On Single Image:
+### Object Counting On Single Image:
 <p align="center">
 <img src="https://user-images.githubusercontent.com/22610163/47524870-7c830e80-d8a4-11e8-8fd1-741193615a04.png" | width=750></p>
 
