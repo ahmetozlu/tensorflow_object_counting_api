@@ -209,6 +209,12 @@ Here are some cool architectural design features of TensorFlow Object Counting A
 - Gets "Pythonic Approach" advantages
 - It supports REST Architecture and RESTful Web Services
 
+TODOs:
+
+- Custom Object Trainer Interface will be added.
+- Autonomus Training Image Annotation Tool will be developed.
+- Mask-RCNN models will be added to perform segmentation on the counted objects.
+
 ## Theory
 
 ### System Architecture
