@@ -138,7 +138,18 @@ The TensorFlow Object Counting API is an open source framework built on top of T
  <p align="center">
   <img src="https://user-images.githubusercontent.com/22610163/42411750-1aae0d72-820a-11e8-8726-4b57480f4cb8.gif" | width=700>
 </p>
- 
+
+---
+*Usage of "detecting, counting and tracking **the multiple targeted objects**":*
+
+    targeted_objects = "person, bicycle" # (for counting targeted objects) change it with your targeted objects
+    fps = 25 # change it with your input video fps
+    width = 1280 # change it with your input video width
+    height = 720 # change it with your input video height
+    is_color_recognition_enabled = 0
+
+    object_counting_api.targeted_object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled, targeted_objects, fps, width, height) # targeted objects counting
+---
  
 #### 1.2) For detecting, tracking and counting "all the objects with disabled color prediction"
 
