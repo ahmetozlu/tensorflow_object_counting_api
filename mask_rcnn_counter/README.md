@@ -1,0 +1,1 @@
+This is an Object Counting API, which is an open source framework built on top of the implementation of [Mask R-CNN](https://github.com/matterport/Mask_RCNN) on Python 3, Keras, and TensorFlow, makes it easy to develop object counting systems!
