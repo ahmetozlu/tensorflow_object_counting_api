@@ -4,13 +4,13 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 ## QUICK DEMO
 
 ---
-### Cumulative Counting Mode:
+### Cumulative Counting Mode (TensorFlow implementation):
 <p align="center">
   <img src="https://user-images.githubusercontent.com/22610163/43166455-45964aac-8f9f-11e8-9ddf-f71d05f0c7f5.gif" | width=430> <img src="https://user-images.githubusercontent.com/22610163/43166945-c0744de0-8fa0-11e8-8985-9f863c59e859.gif" | width=411>
 </p>
 
 ---
-### Real-Time Counting Mode:
+### Real-Time Counting Mode (TensorFlow implementation):
 <p align="center">
   <img src="https://user-images.githubusercontent.com/22610163/42237325-1f964e82-7f06-11e8-966b-dfde98701c66.gif" | width=430> <img src="https://user-images.githubusercontent.com/22610163/42238435-77ac0d34-7f09-11e8-9609-e7c3c2c5af74.gif" | width=430>
 </p>
@@ -20,21 +20,18 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 </p>
 
 ---
-### Object Counting On Single Image:
+### Object Counting On Single Image (TensorFlow implementation):
 <p align="center">
 <img src="https://user-images.githubusercontent.com/22610163/47524870-7c830e80-d8a4-11e8-8fd1-741193615a04.png" | width=750></p>
 
 ---
 
----
-### Looking for more!?!
-
-#### Object Counting based R-CNN (Keras + TensorFlow implementation):
+### Object Counting based R-CNN (Keras API + TensorFlow implementation):
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/22610163/57814531-97539c80-777c-11e9-9bf1-6c44d5304248.png" | width=750></p>
 
-#### Object Segmentation & Counting based Mask R-CNN (Keras + TensorFlow implementation):
+### Object Segmentation & Counting based Mask R-CNN (Keras + TensorFlow implementation):
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/22610163/57814689-2bbdff00-777d-11e9-9229-e2c5749d26e8.png" | width=750></p>
