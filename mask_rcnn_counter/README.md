@@ -8,12 +8,10 @@ This is an Object Counting API, which is an open source framework built on top o
 <p align="center">
 <img src="https://user-images.githubusercontent.com/22610163/57814531-97539c80-777c-11e9-9bf1-6c44d5304248.png" | width=750></p>
 
----
 ### Detect, Segment and Count:
 <p align="center">
 <img src="https://user-images.githubusercontent.com/22610163/57814689-2bbdff00-777d-11e9-9229-e2c5749d26e8.png" | width=750></p>
 
----
 ## USAGE
 
 ## General Capabilities of The TensorFlow Object Counting API
