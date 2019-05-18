@@ -29,12 +29,12 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 ### Object Counting based R-CNN (Keras and TensorFlow implementation):
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/22610163/57814531-97539c80-777c-11e9-9bf1-6c44d5304248.png" | width=750></p>
+<img src="https://user-images.githubusercontent.com/22610163/57969852-0569b080-7983-11e9-8051-07d6766ca0e4.png" | width=750></p>
 
 ### Object Segmentation & Counting based Mask R-CNN (Keras and TensorFlow implementation):
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/22610163/57814689-2bbdff00-777d-11e9-9229-e2c5749d26e8.png" | width=750></p>
+<img src="https://user-images.githubusercontent.com/22610163/57969871-1c100780-7983-11e9-9660-7b8571b01ff7.png" | width=750></p>
 
 ---
 
