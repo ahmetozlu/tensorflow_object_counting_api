@@ -4,7 +4,6 @@ This is an Object Counting API, which is an open source framework built on top o
 
 ## QUICK DEMO
 
----
 ### Detect and Count:
 <p align="center">
 <img src="https://user-images.githubusercontent.com/22610163/57814531-97539c80-777c-11e9-9bf1-6c44d5304248.png" | width=750></p>
