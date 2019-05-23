@@ -14,13 +14,23 @@ This is an Object Counting API, which is an open source framework built on top o
 
 ## USAGE
 
+**TBA**
+
 ## General Capabilities of The TensorFlow Object Counting API
+
+**TBA**
 
 ## Theory
 
+**TBA**
+
 ### System Architecture
 
+**TBA**
+
 ### Tracker
+
+**TBA**
 
 ### Model
 
@@ -35,12 +45,6 @@ I use the pre-trained [COCO weights](https://github.com/matterport/Mask_RCNN/rel
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/22610163/57968609-8752dd00-7975-11e9-9221-455c61c0b332.jpeg" | width=600></p>
-
-
-
-
-
-
 
 ## Installation
 
