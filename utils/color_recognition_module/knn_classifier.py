@@ -21,7 +21,7 @@ def calculateEuclideanDistance(variable1, variable2, length):
 # get k nearest neigbors
 def kNearestNeighbors(training_feature_vector, testInstance, k):
     distances = []
-    length = len(testInstance)-1
+    length = len(testInstance)
     for x in range(len(training_feature_vector)):
         dist = calculateEuclideanDistance(testInstance, training_feature_vector[x], length)
         distances.append((training_feature_vector[x], dist))
