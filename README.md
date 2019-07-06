@@ -202,6 +202,8 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 
 ---
 
+*The minimum object detection threshold can be set [in this line](https://github.com/ahmetozlu/tensorflow_object_counting_api/blob/master/utils/visualization_utils.py#L443) in terms of percentage. The default minimum object detecion threshold is 0.5!*
+
 ## General Capabilities of The TensorFlow Object Counting API
 
 <p align="center">
@@ -236,7 +238,6 @@ TODOs:
 
 - Custom Object Trainer Interface will be added.
 - Autonomus Training Image Annotation Tool will be developed.
-- Mask-RCNN models will be added to perform segmentation on the counted objects.
 
 ## Theory
 
