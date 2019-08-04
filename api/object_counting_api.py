@@ -14,13 +14,7 @@ from utils import visualization_utils as vis_util
 total_passed_vehicle = 0  # using it to count vehicles
 
 def cumulative_object_counting_x_axis(input_video, detection_graph, category_index, is_color_recognition_enabled, roi, deviation):
-        total_passed_vehicle = 0
-       
-        #initialize .csv
-        with open('object_counting_report.csv', 'w') as f:
-                writer = csv.writer(f)  
-                csv_line = "Object Type, Object Color, Object Movement Direction, Object Speed (km/h)"                 
-                writer.writerows([csv_line.split(',')])        
+        total_passed_vehicle = 0              
 
         # input video
         cap = cv2.VideoCapture(input_video)
@@ -128,23 +122,11 @@ def cumulative_object_counting_x_axis(input_video, detection_graph, category_ind
                 if cv2.waitKey(1) & 0xFF == ord('q'):
                         break
 
-                '''if(csv_line != "not_available"):
-                        with open('traffic_measurement.csv', 'a') as f:
-                                writer = csv.writer(f)                          
-                                size, direction = csv_line.split(',')                                             
-                                writer.writerows([csv_line.split(',')])         '''
-
             cap.release()
             cv2.destroyAllWindows()
 
 def cumulative_object_counting_y_axis(input_video, detection_graph, category_index, is_color_recognition_enabled, roi, deviation):
         total_passed_vehicle = 0        
-
-        #initialize .csv
-        with open('object_counting_report.csv', 'w') as f:
-                writer = csv.writer(f)  
-                csv_line = "Object Type, Object Color, Object Movement Direction, Object Speed (km/h)"                 
-                writer.writerows([csv_line.split(',')])
 
         # input video
         cap = cv2.VideoCapture(input_video)
@@ -251,22 +233,11 @@ def cumulative_object_counting_y_axis(input_video, detection_graph, category_ind
                 if cv2.waitKey(1) & 0xFF == ord('q'):
                         break
 
-                '''if(csv_line != "not_available"):
-                        with open('traffic_measurement.csv', 'a') as f:
-                                writer = csv.writer(f)                          
-                                size, direction = csv_line.split(',')                                             
-                                writer.writerows([csv_line.split(',')])         '''
-
             cap.release()
             cv2.destroyAllWindows()
 
 
 def object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled):
-        #initialize .csv
-        with open('object_counting_report.csv', 'w') as f:
-                writer = csv.writer(f)  
-                csv_line = "Object Type, Object Color, Object Movement Direction, Object Speed (km/h)"                 
-                writer.writerows([csv_line.split(',')])
 
         # input video
         cap = cv2.VideoCapture(input_video)
@@ -345,21 +316,10 @@ def object_counting(input_video, detection_graph, category_index, is_color_recog
                 if cv2.waitKey(1) & 0xFF == ord('q'):
                         break
 
-                if(csv_line != "not_available"):
-                        with open('traffic_measurement.csv', 'a') as f:
-                                writer = csv.writer(f)                          
-                                size, direction = csv_line.split(',')                                             
-                                writer.writerows([csv_line.split(',')])         
-
             cap.release()
             cv2.destroyAllWindows()
 
 def targeted_object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled, targeted_object):
-        #initialize .csv
-        with open('object_counting_report.csv', 'w') as f:
-                writer = csv.writer(f)  
-                csv_line = "Object Type, Object Color, Object Movement Direction, Object Speed (km/h)"                 
-                writer.writerows([csv_line.split(',')])
 
         # input video
         cap = cv2.VideoCapture(input_video)
@@ -440,12 +400,6 @@ def targeted_object_counting(input_video, detection_graph, category_index, is_co
                 if cv2.waitKey(1) & 0xFF == ord('q'):
                         break
 
-                if(csv_line != "not_available"):
-                        with open('traffic_measurement.csv', 'a') as f:
-                                writer = csv.writer(f)                          
-                                size, direction = csv_line.split(',')                                             
-                                writer.writerows([csv_line.split(',')])         
-
             cap.release()
             cv2.destroyAllWindows()
 
@@ -503,5 +457,4 @@ def single_image_object_counting(input_video, detection_graph, category_index, i
         cv2.imshow('tensorflow_object counting_api',input_frame)        
         cv2.waitKey(0)
 
-        return counting_mode       
-
+        return counting_mode
