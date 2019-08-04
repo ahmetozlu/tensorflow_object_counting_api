@@ -14,23 +14,21 @@ This is an Object Counting API, which is an open source framework built on top o
 
 ## USAGE
 
-**TBA**
+- Image Processing:
 
-## General Capabilities of The TensorFlow Object Counting API
+Here are [a sample usage](https://github.com/ahmetozlu/tensorflow_object_counting_api/blob/master/mask_rcnn_counting_api_keras_tensorflow/single_image_object_counting.py#L636):
 
-**TBA**
+    masked_image = get_masked_fixed_color(im, r['rois'], r['masks'], r['class_ids'], class_names, colors, r['scores'], show=False)
+    
+Make "show=True" to enable masking operation!
+
+- Video Processing:
+
+You can find [a sample python program](https://github.com/ahmetozlu/tensorflow_object_counting_api/blob/master/mask_rcnn_counting_api_keras_tensorflow/real_time_object_counting.py) for video processing to count custom objects via Mask R-CNN.
 
 ## Theory
 
-**TBA**
-
-### System Architecture
-
-**TBA**
-
-### Tracker
-
-**TBA**
+You can check the [Mask R-CNN](https://arxiv.org/abs/1703.06870) paper to get more information about its theory!
 
 ### Model
 
