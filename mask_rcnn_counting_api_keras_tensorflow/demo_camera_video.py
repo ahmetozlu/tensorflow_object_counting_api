@@ -30,11 +30,11 @@ ROOT_DIR = os.getcwd()
 MODEL_DIR = os.path.join(ROOT_DIR, "logs")
 
 # Local path to trained weights file
-COCO_MODEL_PATH = "/home/ahmetozlu/Desktop/Traffic_Analysis/zzz_1/video_edit/Mask_RCNN-master/mask_rcnn_pasta-spaghetti_0128.h5"
+COCO_MODEL_PATH = "./mask_rcnn_coco.h5"
 
 # Save processed frames as a video
 fourcc = cv2.VideoWriter_fourcc(*'XVID')
-output_movie = cv2.VideoWriter('SingleProductPasta-TwoShopper.mp4.avi', fourcc, 24, (1920, 1080))
+output_movie = cv2.VideoWriter('the_output.avi', fourcc, 24, (1920, 1080))
 
 #=============================================================================================================================================
 #=============================================================================================================================================
@@ -591,7 +591,7 @@ import time
 
 colors = random_colors(len(class_names))
 
-cap = cv2.VideoCapture('SingleProductPasta-TwoShopper.mp4')
+cap = cv2.VideoCapture('input.mp4')
 
 try:
     _frame_number = -1

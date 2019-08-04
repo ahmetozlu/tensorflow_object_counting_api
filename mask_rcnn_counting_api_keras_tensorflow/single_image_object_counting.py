@@ -30,7 +30,7 @@ ROOT_DIR = os.getcwd()
 MODEL_DIR = os.path.join(ROOT_DIR, "logs")
 
 # Local path to trained weights file
-COCO_MODEL_PATH = "/home/ahmetozlu/Desktop/Mask_RCNN-master/mask_rcnn_coco.h5"
+COCO_MODEL_PATH = "./mask_rcnn_coco.h5"
 
 #=============================================================================================================================================
 #=============================================================================================================================================
@@ -545,7 +545,7 @@ def get_masked_fixed_color(image, boxes, masks, class_ids, class_names,
     figsize: (optional) the size of the image.
     """
     objects = dict()
-    show = False
+    
     # Number of instances
     N = boxes.shape[0]
     if not N:
@@ -558,7 +558,6 @@ def get_masked_fixed_color(image, boxes, masks, class_ids, class_names,
         classN = len(class_names)
         colors = random_colors(classN)
 
-    # masked_image = image.astype(np.uint32).copy()
     masked_image = np.array(image)
 
     for i in range(N):
@@ -585,21 +584,20 @@ def get_masked_fixed_color(image, boxes, masks, class_ids, class_names,
 
         # Mask
         mask = masks[:, :, i]
-        #masked_image = apply_mask(masked_image, mask, color)
+        if show: 
+            masked_image = apply_mask(masked_image, mask, color)
 
-        # Mask Polygon
-        # Pad to ensure proper polygons for masks that touch image edges.
-        '''padded_mask = np.zeros(
-            (mask.shape[0] + 2, mask.shape[1] + 2), dtype=np.uint8)
-        padded_mask[1:-1, 1:-1] = mask
-        contours = find_contours(padded_mask, 0.5)
-        for verts in contours:
-            # Subtract the padding and flip (y, x) to (x, y)
-            verts = np.fliplr(verts) - 1
-            verts = verts.reshape((-1, 1, 2)).astype(np.int32)
-            # Draw an edge on object contour
-            cv2.polylines(masked_image, verts, True, color)'''
-
+            # Mask Polygon
+            # Pad to ensure proper polygons for masks that touch image edges.
+            padded_mask = np.zeros((mask.shape[0] + 2, mask.shape[1] + 2), dtype=np.uint8)
+            padded_mask[1:-1, 1:-1] = mask
+            contours = find_contours(padded_mask, 0.5)
+            for verts in contours:
+                # Subtract the padding and flip (y, x) to (x, y)
+                verts = np.fliplr(verts) - 1
+                verts = verts.reshape((-1, 1, 2)).astype(np.int32)
+                # Draw an edge on object contour
+                cv2.polylines(masked_image, verts, True, color)
 
     print(str(objects))
     cv2.putText(masked_image, str(objects), (20, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0,0,0))
@@ -615,7 +613,7 @@ import time
 
 colors = random_colors(len(class_names))
 
-image1 = cv2.imread('11.jpg')
+image1 = cv2.imread('input_images_and_videos/input.png')
  
 image1 = cv2.resize(image1, None, fx=0.5, fy=0.5)        
 
@@ -638,6 +636,8 @@ for i in range(len(results)):
     masked_image = get_masked_fixed_color(im, r['rois'], r['masks'], r['class_ids'], class_names, colors, r['scores'], show=False)
     masked_image = cv2.resize(masked_image, None, fx=3, fy=3)
     masked_image_batch.append(masked_image)
+
 t = t - time.time()
 print (t)
+
 cv2.imwrite("result.png", masked_image_batch[0])
