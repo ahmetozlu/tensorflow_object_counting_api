@@ -237,6 +237,7 @@ Here are some cool architectural design features of TensorFlow Object Counting A
 TODOs:
 
 - Custom Object Trainer Interface will be added.
+- A Custom Object Counting Sample project will be released.
 - Autonomus Training Image Annotation Tool will be developed.
 
 ## Theory
