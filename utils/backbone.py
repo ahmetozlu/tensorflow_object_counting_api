@@ -1,4 +1,4 @@
-import glob, os
+import glob, os, tarfile, urllib
 import tensorflow as tf
 from utils import label_map_util
 
