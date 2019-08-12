@@ -25,7 +25,7 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 
 You can train TensorFlow models with your own training data to built your own custom object counter system! If you want to learn how to do it, please check one of the sample projects, which cover some of the theory of transfer learning and show how to apply it in useful projects, are given at below.
 
-- **Sample#1: Smurf Counting**
+**Sample Project#1: Smurf Counting**
 
 More info can be found in [**here**](https://github.com/ahmetozlu/tensorflow_object_counting_api/tree/master/smurf_counter_training)!
 
@@ -33,7 +33,7 @@ More info can be found in [**here**](https://github.com/ahmetozlu/tensorflow_obj
   <img src="https://user-images.githubusercontent.com/22610163/62861574-9d6e0080-bd0c-11e9-9e38-b63226df8aa1.gif" | width=750>
 </p>
 
-- **Sample#2: Barilla-Spaghetti Counting**
+**Sample Project#2: Barilla-Spaghetti Counting**
 
 More info can be found in [**here**](https://github.com/ahmetozlu/tensorflow_object_counting_api/tree/master/mask_rcnn_counting_api_keras_tensorflow/barilla_spaghetti_counter_training)!
 
@@ -338,6 +338,7 @@ Ahmet Özlü
 
 ## License
 This system is available under the MIT license. See the LICENSE file for more info.
+
 
 
 
