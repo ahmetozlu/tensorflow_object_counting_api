@@ -20,6 +20,16 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 </p>
 
 ---
+
+### Custom Object Counting Mode (TensorFlow implementation):
+
+Train your own custom object detector with your own data to count your own custom objects. You can find how-to tutorial in [**here**](https://github.com/ahmetozlu/tensorflow_object_counting_api/tree/master/smurf_counter_training) about training your own custom CNN model to detect, track and count your custom objects.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/22610163/62861574-9d6e0080-bd0c-11e9-9e38-b63226df8aa1.gif" | width=750>
+</p>
+
+---
 ### Object Counting On Single Image (TensorFlow implementation):
 <p align="center">
 <img src="https://user-images.githubusercontent.com/22610163/47524870-7c830e80-d8a4-11e8-8fd1-741193615a04.png" | width=750></p>
@@ -236,8 +246,6 @@ Here are some cool architectural design features of TensorFlow Object Counting A
 
 TODOs:
 
-- Custom Object Trainer Interface will be added.
-- A Custom Object Counting Sample project will be released.
 - Autonomus Training Image Annotation Tool will be developed.
 
 ## Theory
@@ -318,5 +326,6 @@ Ahmet Özlü
 
 ## License
 This system is available under the MIT license. See the LICENSE file for more info.
+
 
 
