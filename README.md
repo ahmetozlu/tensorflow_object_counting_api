@@ -23,10 +23,22 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 
 ### Custom Object Counting Mode (TensorFlow implementation):
 
-Train your own custom object detector with your own data to count your own custom objects. You can find how-to tutorial in [**here**](https://github.com/ahmetozlu/tensorflow_object_counting_api/tree/master/smurf_counter_training) about training your own custom CNN model to detect, track and count your custom objects.
+You can train TensorFlow models with your own training data to built your own custom object counter system! If you want to learn how to do it, please check one of the sample projects, which cover some of the theory of transfer learning and show how to apply it in useful projects, are given at below.
+
+- **Sample#1: Smurf Counting**
+
+More info can be found in [**here**](https://github.com/ahmetozlu/tensorflow_object_counting_api/tree/master/smurf_counter_training)!
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/22610163/62861574-9d6e0080-bd0c-11e9-9e38-b63226df8aa1.gif" | width=750>
+</p>
+
+- **Sample#2: Barilla-Spaghetti Counting**
+
+More info can be found in [**here**](https://github.com/ahmetozlu/tensorflow_object_counting_api/tree/master/mask_rcnn_counting_api_keras_tensorflow/barilla_spaghetti_counter_training)!
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/22610163/62903429-46e3df00-bd6b-11e9-9f97-4de477fa8769.png" | width=750>  
 </p>
 
 ---
@@ -326,6 +338,7 @@ Ahmet Özlü
 
 ## License
 This system is available under the MIT license. See the LICENSE file for more info.
+
 
 
 
