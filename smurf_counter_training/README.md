@@ -1,0 +1,1 @@
+# smurf_detector
