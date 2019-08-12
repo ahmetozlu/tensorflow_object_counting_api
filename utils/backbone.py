@@ -2,7 +2,7 @@ import glob, os, tarfile, urllib
 import tensorflow as tf
 from utils import label_map_util
 
-def set_model(model_name):
+def set_model(model_name, label_name):
 	model_found = 0
 
 	for file in glob.glob("*"):
@@ -18,7 +18,7 @@ def set_model(model_name):
 	path_to_ckpt = model_name + '/frozen_inference_graph.pb'
 
 	# List of the strings that is used to add correct label for each box.
-	path_to_labels = os.path.join('data', 'mscoco_label_map.pbtxt')
+	path_to_labels = os.path.join('data', label_name)
 
 	num_classes = 90
 
