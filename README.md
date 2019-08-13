@@ -21,7 +21,25 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 
 ---
 
-### Custom Object Counting Mode (TensorFlow implementation):
+### Object Counting On Single Image (TensorFlow implementation):
+<p align="center">
+<img src="https://user-images.githubusercontent.com/22610163/47524870-7c830e80-d8a4-11e8-8fd1-741193615a04.png" | width=750></p>
+
+---
+
+### Object Counting based R-CNN ([Keras and TensorFlow implementation](https://github.com/ahmetozlu/tensorflow_object_counting_api/tree/master/mask_rcnn_counter)):
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/22610163/57969852-0569b080-7983-11e9-8051-07d6766ca0e4.png" | width=750></p>
+
+### Object Segmentation & Counting based Mask R-CNN ([Keras and TensorFlow implementation](https://github.com/ahmetozlu/tensorflow_object_counting_api/tree/master/mask_rcnn_counter)):
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/22610163/57969871-1c100780-7983-11e9-9660-7b8571b01ff7.png" | width=750></p>
+
+---
+
+### BONUS: Custom Object Counting Mode (TensorFlow implementation):
 
 You can train TensorFlow models with your own training data to built your own custom object counter system! If you want to learn how to do it, please check one of the sample projects, which cover some of the theory of transfer learning and show how to apply it in useful projects, are given at below.
 
@@ -40,23 +58,6 @@ More info can be found in [**here**](https://github.com/ahmetozlu/tensorflow_obj
 <p align="center">
   <img src="https://user-images.githubusercontent.com/22610163/62903429-46e3df00-bd6b-11e9-9f97-4de477fa8769.png" | width=750>  
 </p>
-
----
-### Object Counting On Single Image (TensorFlow implementation):
-<p align="center">
-<img src="https://user-images.githubusercontent.com/22610163/47524870-7c830e80-d8a4-11e8-8fd1-741193615a04.png" | width=750></p>
-
----
-
-### Object Counting based R-CNN ([Keras and TensorFlow implementation](https://github.com/ahmetozlu/tensorflow_object_counting_api/tree/master/mask_rcnn_counter)):
-
-<p align="center">
-<img src="https://user-images.githubusercontent.com/22610163/57969852-0569b080-7983-11e9-8051-07d6766ca0e4.png" | width=750></p>
-
-### Object Segmentation & Counting based Mask R-CNN ([Keras and TensorFlow implementation](https://github.com/ahmetozlu/tensorflow_object_counting_api/tree/master/mask_rcnn_counter)):
-
-<p align="center">
-<img src="https://user-images.githubusercontent.com/22610163/57969871-1c100780-7983-11e9-9660-7b8571b01ff7.png" | width=750></p>
 
 ---
 
@@ -338,6 +339,7 @@ Ahmet Özlü
 
 ## License
 This system is available under the MIT license. See the LICENSE file for more info.
+
 
 
 
