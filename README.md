@@ -259,6 +259,7 @@ Here are some cool architectural design features of TensorFlow Object Counting A
 
 TODOs:
 
+- Kalman Filter based object tracker util will be developed.
 - Autonomus Training Image Annotation Tool will be developed.
 
 ## Theory
