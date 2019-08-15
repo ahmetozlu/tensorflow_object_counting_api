@@ -14,7 +14,7 @@ In this project readers will learn how to train TensorFlow models with their own
 
 To convert XML files to TFRecord, first, they are needed to be converted to CSV. [**Here**](https://github.com/ahmetozlu/tensorflow_object_counting_api/blob/master/smurf_counter_training/xml_to_csv.py) is the code that converts your XML files to CSV files.
 
-Once, the XML files have been converted to CSV files, TFRecords can be generated using a python which can be found in [**here**](https://github.com/ahmetozlu/tensorflow_object_counting_api/blob/master/smurf_counter_training/generate_tfrecord.py) script from the same repository with some changes.
+Once, the XML files have been converted to CSV files, TFRecords can be generated using a python which can be found in [**here**](https://github.com/ahmetozlu/tensorflow_object_counting_api/blob/master/smurf_counter_training/generate_tfrecord.py) script from the same repository with some changes. Using Tensorflow TFRecords is a convenient way to get your data into your machine learning pipeline.
 
 Type this in your terminal to generate the tfrecord for the training data:
 
