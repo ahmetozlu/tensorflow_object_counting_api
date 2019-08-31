@@ -14,7 +14,7 @@ from utils import visualization_utils as vis_util
 total_passed_vehicle = 0  # using it to count vehicles
 
 def cumulative_object_counting_x_axis(input_video, detection_graph, category_index, is_color_recognition_enabled, roi, deviation):
-        total_passed_vehicle = 0              
+        total_passed_vehicle = 0
 
         # input video
         cap = cv2.VideoCapture(input_video)
@@ -54,7 +54,7 @@ def cumulative_object_counting_x_axis(input_video, detection_graph, category_ind
                 if not  ret:
                     print("end of the video file...")
                     break
-                
+
                 input_frame = frame
 
                 # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
@@ -68,7 +68,7 @@ def cumulative_object_counting_x_axis(input_video, detection_graph, category_ind
                 # insert information text to video frame
                 font = cv2.FONT_HERSHEY_SIMPLEX
 
-                # Visualization of the results of a detection.        
+                # Visualization of the results of a detection.
                 counter, csv_line, counting_mode = vis_util.visualize_boxes_and_labels_on_image_array_x_axis(cap.get(1),
                                                                                                              input_frame,
                                                                                                              1,
@@ -81,7 +81,7 @@ def cumulative_object_counting_x_axis(input_video, detection_graph, category_ind
                                                                                                              deviation = deviation,
                                                                                                              use_normalized_coordinates=True,
                                                                                                              line_thickness=4)
-                               
+        
                 # when the vehicle passed over line and counted, make the color of ROI line green
                 if counter == 1:
                   cv2.line(input_frame, (roi, 0), (roi, height), (0, 0xFF, 0), 5)
@@ -126,7 +126,7 @@ def cumulative_object_counting_x_axis(input_video, detection_graph, category_ind
             cv2.destroyAllWindows()
 
 def cumulative_object_counting_y_axis(input_video, detection_graph, category_index, is_color_recognition_enabled, roi, deviation):
-        total_passed_vehicle = 0        
+        total_passed_vehicle = 0
 
         # input video
         cap = cv2.VideoCapture(input_video)
@@ -161,12 +161,12 @@ def cumulative_object_counting_y_axis(input_video, detection_graph, category_ind
 
             # for all the frames that are extracted from input video
             while(cap.isOpened()):
-                ret, frame = cap.read()                
+                ret, frame = cap.read()
 
                 if not  ret:
                     print("end of the video file...")
                     break
-                
+
                 input_frame = frame
 
                 # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
@@ -180,7 +180,7 @@ def cumulative_object_counting_y_axis(input_video, detection_graph, category_ind
                 # insert information text to video frame
                 font = cv2.FONT_HERSHEY_SIMPLEX
 
-               # Visualization of the results of a detection.        
+               # Visualization of the results of a detection.
                 counter, csv_line, counting_mode = vis_util.visualize_boxes_and_labels_on_image_array_y_axis(cap.get(1),
                                                                                                              input_frame,
                                                                                                              2,
@@ -195,11 +195,11 @@ def cumulative_object_counting_y_axis(input_video, detection_graph, category_ind
                                                                                                              line_thickness=4)
 
                 # when the vehicle passed over line and counted, make the color of ROI line green
-                if counter == 1:                  
+                if counter == 1:
                   cv2.line(input_frame, (0, roi), (width, roi), (0, 0xFF, 0), 5)
                 else:
                   cv2.line(input_frame, (0, roi), (width, roi), (0, 0, 0xFF), 5)
-                
+
                 total_passed_vehicle = total_passed_vehicle + counter
 
                 # insert information text to video frame
@@ -213,8 +213,8 @@ def cumulative_object_counting_y_axis(input_video, detection_graph, category_ind
                     (0, 0xFF, 0xFF),
                     2,
                     cv2.FONT_HERSHEY_SIMPLEX,
-                    )               
-                
+                    )
+
                 cv2.putText(
                     input_frame,
                     'ROI Line',
@@ -274,12 +274,12 @@ def object_counting(input_video, detection_graph, category_index, is_color_recog
 
             # for all the frames that are extracted from input video
             while(cap.isOpened()):
-                ret, frame = cap.read()                
+                ret, frame = cap.read()
 
                 if not  ret:
                     print("end of the video file...")
                     break
-                
+
                 input_frame = frame
 
                 # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
@@ -293,7 +293,7 @@ def object_counting(input_video, detection_graph, category_index, is_color_recog
                 # insert information text to video frame
                 font = cv2.FONT_HERSHEY_SIMPLEX
 
-                # Visualization of the results of a detection.        
+                # Visualization of the results of a detection.
                 counter, csv_line, counting_mode = vis_util.visualize_boxes_and_labels_on_image_array(cap.get(1),
                                                                                                       input_frame,
                                                                                                       1,
@@ -305,10 +305,10 @@ def object_counting(input_video, detection_graph, category_index, is_color_recog
                                                                                                       use_normalized_coordinates=True,
                                                                                                       line_thickness=4)
                 if(len(counting_mode) == 0):
-                    cv2.putText(input_frame, "...", (10, 35), font, 0.8, (0,255,255),2,cv2.FONT_HERSHEY_SIMPLEX)                       
+                    cv2.putText(input_frame, "...", (10, 35), font, 0.8, (0,255,255),2,cv2.FONT_HERSHEY_SIMPLEX)           
                 else:
                     cv2.putText(input_frame, counting_mode, (10, 35), font, 0.8, (0,255,255),2,cv2.FONT_HERSHEY_SIMPLEX)
-                
+
                 output_movie.write(input_frame)
                 print ("writing frame")
                 #cv2.imshow('object counting',input_frame)
@@ -350,12 +350,12 @@ def object_counting_webcam(detection_graph, category_index, is_color_recognition
             # for all the frames that are extracted from input video
             while True:
                 # Capture frame-by-frame
-                (ret, frame) = cap.read()          
+                (ret, frame) = cap.read()
 
                 if not  ret:
                     print("end of the video file...")
                     break
-                
+
                 input_frame = frame
 
                 # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
@@ -369,7 +369,7 @@ def object_counting_webcam(detection_graph, category_index, is_color_recognition
                 # insert information text to video frame
                 font = cv2.FONT_HERSHEY_SIMPLEX
 
-                # Visualization of the results of a detection.        
+                # Visualization of the results of a detection.
                 counter, csv_line, counting_mode = vis_util.visualize_boxes_and_labels_on_image_array(cap.get(1),
                                                                                                       input_frame,
                                                                                                       1,
@@ -381,10 +381,10 @@ def object_counting_webcam(detection_graph, category_index, is_color_recognition
                                                                                                       use_normalized_coordinates=True,
                                                                                                       line_thickness=4)
                 if(len(counting_mode) == 0):
-                    cv2.putText(input_frame, "...", (10, 35), font, 0.8, (0,255,255),2,cv2.FONT_HERSHEY_SIMPLEX)                       
+                    cv2.putText(input_frame, "...", (10, 35), font, 0.8, (0,255,255),2,cv2.FONT_HERSHEY_SIMPLEX)                   
                 else:
                     cv2.putText(input_frame, counting_mode, (10, 35), font, 0.8, (0,255,255),2,cv2.FONT_HERSHEY_SIMPLEX)
-                
+
                 cv2.imshow('object counting',input_frame)
 
                 if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -430,12 +430,12 @@ def targeted_object_counting(input_video, detection_graph, category_index, is_co
 
             # for all the frames that are extracted from input video
             while(cap.isOpened()):
-                ret, frame = cap.read()                
+                ret, frame = cap.read()
 
                 if not  ret:
                     print("end of the video file...")
                     break
-                
+
                 input_frame = frame
 
                 # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
@@ -449,7 +449,7 @@ def targeted_object_counting(input_video, detection_graph, category_index, is_co
                 # insert information text to video frame
                 font = cv2.FONT_HERSHEY_SIMPLEX
 
-                # Visualization of the results of a detection.        
+                # Visualization of the results of a detection.
                 counter, csv_line, the_result = vis_util.visualize_boxes_and_labels_on_image_array(cap.get(1),
                                                                                                       input_frame,
                                                                                                       1,
@@ -465,7 +465,7 @@ def targeted_object_counting(input_video, detection_graph, category_index, is_co
                     cv2.putText(input_frame, "...", (10, 35), font, 0.8, (0,255,255),2,cv2.FONT_HERSHEY_SIMPLEX)                       
                 else:
                     cv2.putText(input_frame, the_result, (10, 35), font, 0.8, (0,255,255),2,cv2.FONT_HERSHEY_SIMPLEX)
-                
+
                 #cv2.imshow('object counting',input_frame)
 
                 output_movie.write(input_frame)
@@ -477,7 +477,7 @@ def targeted_object_counting(input_video, detection_graph, category_index, is_co
             cap.release()
             cv2.destroyAllWindows()
 
-def single_image_object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled):     
+def single_image_object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled):
         total_passed_vehicle = 0
         speed = "waiting..."
         direction = "waiting..."
@@ -496,9 +496,7 @@ def single_image_object_counting(input_video, detection_graph, category_index, i
             # Score is shown on the result image, together with the class label.
             detection_scores = detection_graph.get_tensor_by_name('detection_scores:0')
             detection_classes = detection_graph.get_tensor_by_name('detection_classes:0')
-            num_detections = detection_graph.get_tensor_by_name('num_detections:0')            
-
-       
+            num_detections = detection_graph.get_tensor_by_name('num_detections:0')
 
         input_frame = cv2.imread(input_video)
 
@@ -513,7 +511,7 @@ def single_image_object_counting(input_video, detection_graph, category_index, i
         # insert information text to video frame
         font = cv2.FONT_HERSHEY_SIMPLEX
 
-        # Visualization of the results of a detection.        
+        # Visualization of the results of a detection.
         counter, csv_line, counting_mode = vis_util.visualize_boxes_and_labels_on_single_image_array(1,input_frame,
                                                                                               1,
                                                                                               is_color_recognition_enabled,
@@ -524,11 +522,11 @@ def single_image_object_counting(input_video, detection_graph, category_index, i
                                                                                               use_normalized_coordinates=True,
                                                                                               line_thickness=4)
         if(len(counting_mode) == 0):
-            cv2.putText(input_frame, "...", (10, 35), font, 0.8, (0,255,255),2,cv2.FONT_HERSHEY_SIMPLEX)                       
+            cv2.putText(input_frame, "...", (10, 35), font, 0.8, (0,255,255),2,cv2.FONT_HERSHEY_SIMPLEX)        
         else:
             cv2.putText(input_frame, counting_mode, (10, 35), font, 0.8, (0,255,255),2,cv2.FONT_HERSHEY_SIMPLEX)
-        
-        cv2.imshow('tensorflow_object counting_api',input_frame)        
+
+        cv2.imshow('tensorflow_object counting_api',input_frame)
         cv2.waitKey(0)
 
         return counting_mode
