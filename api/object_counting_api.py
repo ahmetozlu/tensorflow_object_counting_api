@@ -200,6 +200,7 @@ def cumulative_object_counting_y_axis(input_video, detection_graph, category_ind
                 else:
                   cv2.line(input_frame, (0, roi), (width, roi), (0, 0, 0xFF), 5)
                 
+                #TODO: Also need to check if there is same objects, incase speed is slow the counter is unexpect increase 
                 total_passed_vehicle = total_passed_vehicle + counter
 
                 # insert information text to video frame
