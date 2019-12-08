@@ -31,11 +31,9 @@ The TensorFlow Object Counting API is an open source framework built on top of T
   <img src="https://user-images.githubusercontent.com/22610163/70389764-e9883380-19d4-11ea-8c54-80935811c3fa.gif" | width=680>
 </p>
 
+- Tracking module was built on top of [this approach](https://github.com/kcg2015/Vehicle-Detection-and-Tracking).
+
 ---
-
-
-
-
 
 ### Object Counting On Single Image (TensorFlow implementation):
 <p align="center">
