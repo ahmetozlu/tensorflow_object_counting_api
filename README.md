@@ -21,6 +21,22 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 
 ---
 
+---
+### Object Tracking Mode (TensorFlow implementation):
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/22610163/70389634-4682ea00-19d3-11ea-84a2-3996a43e98fe.gif" | width=430> <img src="https://user-images.githubusercontent.com/22610163/70389738-6bc42800-19d4-11ea-971f-f19cb5b90140.gif" | width=430>
+</p>
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/22610163/70389764-e9883380-19d4-11ea-8c54-80935811c3fa.gif" | width=680>
+</p>
+
+---
+
+
+
+
+
 ### Object Counting On Single Image (TensorFlow implementation):
 <p align="center">
 <img src="https://user-images.githubusercontent.com/22610163/47524870-7c830e80-d8a4-11e8-8fd1-741193615a04.png" | width=750></p>
@@ -186,7 +202,7 @@ More info can be found in [**here**](https://github.com/ahmetozlu/tensorflow_obj
     object_counting_api.targeted_object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled, targeted_objects, fps, width, height) # targeted objects counting
 ---
  
-#### 1.2) For detecting, tracking and counting "all the objects with disabled color prediction"
+#### 2.2) For detecting, tracking and counting "all the objects with disabled color prediction"
 
 *Usage of detecting, counting and tracking "all the objects with disabled color prediction":*
     
@@ -218,6 +234,10 @@ More info can be found in [**here**](https://github.com/ahmetozlu/tensorflow_obj
  <p align="center">
   <img src="https://user-images.githubusercontent.com/22610163/42411747-1a215e4a-820a-11e8-8aef-faa500df6836.gif" | width=700>
 </p>
+
+### 3.) Usage of "Object Tracking Mode"
+
+Just run [object_tracking.py](https://github.com/ahmetozlu/tensorflow_object_counting_api/blob/master/object_tracking.py)
 
 ---
 
