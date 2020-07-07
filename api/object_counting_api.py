@@ -1,8 +1,4 @@
-# ----------------------------------------------
-# --- Author         : Ahmet Ozlu
-# --- Mail           : ahmetozlu93@gmail.com
-# --- Date           : 27th January 2018
-# ----------------------------------------------
+
 
 import csv
 
@@ -108,7 +104,7 @@ def cumulative_object_counting_x_axis(input_video, detection_graph, category_ind
                 font = cv2.FONT_HERSHEY_SIMPLEX
                 cv2.putText(
                     input_frame,
-                    'Detected Pedestrians: ' + str(total_passed_vehicle),
+                    'Contador de Personas: ' + str(total_passed_vehicle),
                     (10, 35),
                     font,
                     0.8,
@@ -161,7 +157,7 @@ def cumulative_object_counting_y_axis(input_video, detection_graph, category_ind
     counting_mode = "..."
     width_heigh_taken = True
     with detection_graph.as_default():
-        with tf.Session(graph=detection_graph) as sess:
+        with tf.compat.v1.Session(graph=detection_graph) as sess:
             # Definite input and output Tensors for detection_graph
             image_tensor = detection_graph.get_tensor_by_name('image_tensor:0')
 
@@ -231,7 +227,7 @@ def cumulative_object_counting_y_axis(input_video, detection_graph, category_ind
                 font = cv2.FONT_HERSHEY_SIMPLEX
                 cv2.putText(
                     input_frame,
-                    'Detected Vehicles: ' + str(total_passed_vehicle),
+                    'Contador de Personas: ' + str(total_passed_vehicle),
                     (10, 35),
                     font,
                     0.8,

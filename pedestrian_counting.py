@@ -1,8 +1,4 @@
-# ----------------------------------------------
-# --- Author         : Ahmet Ozlu
-# --- Mail           : ahmetozlu93@gmail.com
-# --- Date           : 27th January 2018
-# ----------------------------------------------
+
 import os
 
 # Imports
@@ -24,8 +20,20 @@ detection_graph, category_index = backbone.set_model(
 
 # set it to 1 for enabling the color prediction for the detected objects
 is_color_recognition_enabled = 0
-roi = 385  # roi line position
-deviation = 1  # the constant that represents the object counting area
 
-object_counting_api.cumulative_object_counting_x_axis(
-    input_video, detection_graph, category_index, is_color_recognition_enabled, roi, deviation)  # counting all the objects
+# the constant that represents the object counting area
+deviation = 1
+
+# roi line position
+roi = 250
+
+# axis for te object detection
+axis = 'x'
+
+# main counting all the objects
+if (axis == 'y'):
+    object_counting_api.cumulative_object_counting_y_axis(
+        input_video, detection_graph, category_index, is_color_recognition_enabled, roi, deviation)
+else:
+    object_counting_api.cumulative_object_counting_x_axis(
+        input_video, detection_graph, category_index, is_color_recognition_enabled, roi, deviation)
