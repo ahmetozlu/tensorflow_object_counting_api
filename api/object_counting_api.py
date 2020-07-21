@@ -134,6 +134,10 @@ def cumulative_object_counting_x_axis(input_video, detection_graph, category_ind
             cap.release()
             cv2.destroyAllWindows()
 
+    f = open("/content/result.log", "w+")
+    f.write('Contador de Personas: ' + str(total_passed_vehicle))
+    f.close()
+
 
 def cumulative_object_counting_y_axis(input_video, detection_graph, category_index, is_color_recognition_enabled, roi, deviation):
     total_passed_vehicle = 0
@@ -256,6 +260,10 @@ def cumulative_object_counting_y_axis(input_video, detection_graph, category_ind
 
             cap.release()
             cv2.destroyAllWindows()
+    
+    f = open("/content/result.log", "w+")
+    f.write('Contador de Personas: ' + str(total_passed_vehicle))
+    f.close()
 
 
 def object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled):
