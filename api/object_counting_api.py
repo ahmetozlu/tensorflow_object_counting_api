@@ -11,10 +11,10 @@ import numpy as np
 from utils import visualization_utils as vis_util
 
 # Variables
-total_passed_vehicle = 0  # using it to count vehicles
+total_passed_objects = 0  # using it to count objects
 
 def cumulative_object_counting_x_axis(input_video, detection_graph, category_index, is_color_recognition_enabled, roi, deviation):
-        total_passed_vehicle = 0              
+        total_passed_objects = 0              
 
         # input video
         cap = cv2.VideoCapture(input_video)
@@ -26,7 +26,7 @@ def cumulative_object_counting_x_axis(input_video, detection_graph, category_ind
         fourcc = cv2.VideoWriter_fourcc(*'XVID')
         output_movie = cv2.VideoWriter('the_output.avi', fourcc, fps, (width, height))
 
-        total_passed_vehicle = 0
+        total_passed_objects = 0
         speed = "waiting..."
         direction = "waiting..."
         size = "waiting..."
@@ -82,19 +82,19 @@ def cumulative_object_counting_x_axis(input_video, detection_graph, category_ind
                                                                                                              use_normalized_coordinates=True,
                                                                                                              line_thickness=4)
                                
-                # when the vehicle passed over line and counted, make the color of ROI line green
+                # when the object passed over line and counted, make the color of ROI line green
                 if counter == 1:
                   cv2.line(input_frame, (roi, 0), (roi, height), (0, 0xFF, 0), 5)
                 else:
                   cv2.line(input_frame, (roi, 0), (roi, height), (0, 0, 0xFF), 5)
 
-                total_passed_vehicle = total_passed_vehicle + counter
+                total_passed_objects = total_passed_objects + counter
 
                 # insert information text to video frame
                 font = cv2.FONT_HERSHEY_SIMPLEX
                 cv2.putText(
                     input_frame,
-                    'Detected Pedestrians: ' + str(total_passed_vehicle),
+                    'Detected Pedestrians: ' + str(total_passed_objects),
                     (10, 35),
                     font,
                     0.8,
@@ -125,8 +125,8 @@ def cumulative_object_counting_x_axis(input_video, detection_graph, category_ind
             cap.release()
             cv2.destroyAllWindows()
 
-def cumulative_object_counting_y_axis(input_video, detection_graph, category_index, is_color_recognition_enabled, roi, deviation):
-        total_passed_vehicle = 0        
+def cumulative_object_counting_y_axis(input_video, detection_graph, category_index, is_color_recognition_enabled, roi, deviation, customObjectName):
+        total_passed_objects = 0        
 
         # input video
         cap = cv2.VideoCapture(input_video)
@@ -138,7 +138,7 @@ def cumulative_object_counting_y_axis(input_video, detection_graph, category_ind
         fourcc = cv2.VideoWriter_fourcc(*'XVID')
         output_movie = cv2.VideoWriter('the_output.avi', fourcc, fps, (width, height))
 
-        total_passed_vehicle = 0
+        total_passed_objects = 0
         speed = "waiting..."
         direction = "waiting..."
         size = "waiting..."
@@ -194,19 +194,19 @@ def cumulative_object_counting_y_axis(input_video, detection_graph, category_ind
                                                                                                              use_normalized_coordinates=True,
                                                                                                              line_thickness=4)
 
-                # when the vehicle passed over line and counted, make the color of ROI line green
+                # when the object passed over line and counted, make the color of ROI line green
                 if counter == 1:                  
                   cv2.line(input_frame, (0, roi), (width, roi), (0, 0xFF, 0), 5)
                 else:
                   cv2.line(input_frame, (0, roi), (width, roi), (0, 0, 0xFF), 5)
                 
-                total_passed_vehicle = total_passed_vehicle + counter
+                total_passed_objects = total_passed_objects + counter
 
                 # insert information text to video frame
                 font = cv2.FONT_HERSHEY_SIMPLEX
                 cv2.putText(
                     input_frame,
-                    'Detected Vehicles: ' + str(total_passed_vehicle),
+                    'Detected ' + customObjectName + ': ' + str(total_passed_objects),
                     (10, 35),
                     font,
                     0.8,
@@ -249,7 +249,7 @@ def object_counting(input_video, detection_graph, category_index, is_color_recog
         fourcc = cv2.VideoWriter_fourcc(*'XVID')
         output_movie = cv2.VideoWriter('the_output.avi', fourcc, fps, (width, height))
 
-        total_passed_vehicle = 0
+        total_passed_objects = 0
         speed = "waiting..."
         direction = "waiting..."
         size = "waiting..."
@@ -321,7 +321,7 @@ def object_counting(input_video, detection_graph, category_index, is_color_recog
 
 def object_counting_webcam(detection_graph, category_index, is_color_recognition_enabled):
 
-        total_passed_vehicle = 0
+        total_passed_objects = 0
         speed = "waiting..."
         direction = "waiting..."
         size = "waiting..."
@@ -405,7 +405,7 @@ def targeted_object_counting(input_video, detection_graph, category_index, is_co
         fourcc = cv2.VideoWriter_fourcc(*'XVID')
         output_movie = cv2.VideoWriter('the_output.avi', fourcc, fps, (width, height))
 
-        total_passed_vehicle = 0
+        total_passed_objects = 0
         speed = "waiting..."
         direction = "waiting..."
         size = "waiting..."
@@ -478,7 +478,7 @@ def targeted_object_counting(input_video, detection_graph, category_index, is_co
             cv2.destroyAllWindows()
 
 def single_image_object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled):     
-        total_passed_vehicle = 0
+        total_passed_objects = 0
         speed = "waiting..."
         direction = "waiting..."
         size = "waiting..."
