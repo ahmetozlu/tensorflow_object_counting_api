@@ -47,6 +47,7 @@ DEVIATION = [0]
 is_color_recognition_enable = [0]
 mode_number = [0]
 x_axis = [0]
+standalone_image = [0]
 
 _TITLE_LEFT_MARGIN = 10
 _TITLE_TOP_MARGIN = 10
@@ -234,6 +235,8 @@ def draw_bounding_box_on_image(current_frame_number,image,
     predicted_direction, is_object_detected, update_csv = object_counter_x_axis.count_objects_x_axis(top, bottom, right, left, detected_object_image, ROI_POSITION[0], ROI_POSITION[0]+DEVIATION[0], ROI_POSITION[0]+(DEVIATION[0]*2), DEVIATION[0])
   elif(mode_number[0] == 2):
     predicted_direction, is_object_detected, update_csv = object_counter.count_objects(top, bottom, right, left, detected_object_image, ROI_POSITION[0], ROI_POSITION[0]+DEVIATION[0], ROI_POSITION[0]+(DEVIATION[0]*2), DEVIATION[0])
+  elif(standalone_image[0] == 1):
+    image_saver.save_image(detected_object_image) # save detected object image
 
   if(1 in is_color_recognition_enable):
     predicted_color = color_recognition_api.color_recognition(detected_object_image)    
@@ -1184,6 +1187,7 @@ def visualize_boxes_and_labels_on_single_image_array(current_frame_number,
   """
   # Create a display string (and color) for every box location, group any boxes
   # that correspond to the same location.
+  standalone_image.insert(0,1)
   csv_line_util = "not_available"
   counter = 0
   ROI_POSITION.insert(0,y_reference)

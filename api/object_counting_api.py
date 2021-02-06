@@ -13,7 +13,7 @@ from utils import visualization_utils as vis_util
 # Variables
 total_passed_objects = 0  # using it to count objects
 
-def cumulative_object_counting_x_axis(input_video, detection_graph, category_index, is_color_recognition_enabled, roi, deviation):
+def cumulative_object_counting_x_axis(input_video, detection_graph, category_index, is_color_recognition_enabled, roi, deviation, custom_object_name):
         total_passed_objects = 0              
 
         # input video
@@ -94,7 +94,7 @@ def cumulative_object_counting_x_axis(input_video, detection_graph, category_ind
                 font = cv2.FONT_HERSHEY_SIMPLEX
                 cv2.putText(
                     input_frame,
-                    'Detected Pedestrians: ' + str(total_passed_objects),
+                    'Detected ' + custom_object_name + ': ' + str(total_passed_objects),
                     (10, 35),
                     font,
                     0.8,
@@ -125,7 +125,7 @@ def cumulative_object_counting_x_axis(input_video, detection_graph, category_ind
             cap.release()
             cv2.destroyAllWindows()
 
-def cumulative_object_counting_y_axis(input_video, detection_graph, category_index, is_color_recognition_enabled, roi, deviation, customObjectName):
+def cumulative_object_counting_y_axis(input_video, detection_graph, category_index, is_color_recognition_enabled, roi, deviation, custom_object_name):
         total_passed_objects = 0        
 
         # input video
@@ -206,7 +206,7 @@ def cumulative_object_counting_y_axis(input_video, detection_graph, category_ind
                 font = cv2.FONT_HERSHEY_SIMPLEX
                 cv2.putText(
                     input_frame,
-                    'Detected ' + customObjectName + ': ' + str(total_passed_objects),
+                    'Detected ' + custom_object_name + ': ' + str(total_passed_objects),
                     (10, 35),
                     font,
                     0.8,
@@ -478,10 +478,6 @@ def targeted_object_counting(input_video, detection_graph, category_index, is_co
             cv2.destroyAllWindows()
 
 def single_image_object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled):     
-        total_passed_objects = 0
-        speed = "waiting..."
-        direction = "waiting..."
-        size = "waiting..."
         color = "waiting..."
         counting_mode = "..."
         with detection_graph.as_default():
