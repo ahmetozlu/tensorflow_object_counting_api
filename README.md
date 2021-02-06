@@ -12,11 +12,11 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 ---
 ### Real-Time Counting Mode (TensorFlow implementation):
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/22610163/42237325-1f964e82-7f06-11e8-966b-dfde98701c66.gif" | width=420> <img src="https://user-images.githubusercontent.com/22610163/42238435-77ac0d34-7f09-11e8-9609-e7c3c2c5af74.gif" | width=420>
+  <img src="https://user-images.githubusercontent.com/22610163/42237325-1f964e82-7f06-11e8-966b-dfde98701c66.gif" | width=410> <img src="https://user-images.githubusercontent.com/22610163/42238435-77ac0d34-7f09-11e8-9609-e7c3c2c5af74.gif" | width=410>
 </p>
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/22610163/42241094-14163cc8-7f12-11e8-83ed-68021b5e3b33.gif" | width=420><img src="https://user-images.githubusercontent.com/22610163/42237904-d6a3ac22-7f07-11e8-88f8-5f21430d9503.gif" | width=420>
+  <img src="https://user-images.githubusercontent.com/22610163/42241094-14163cc8-7f12-11e8-83ed-68021b5e3b33.gif" | width=410><img src="https://user-images.githubusercontent.com/22610163/42237904-d6a3ac22-7f07-11e8-88f8-5f21430d9503.gif" | width=410>
 </p>
 
 ---
@@ -24,11 +24,11 @@ The TensorFlow Object Counting API is an open source framework built on top of T
 ---
 ### Object Tracking Mode (TensorFlow implementation):
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/22610163/70389634-4682ea00-19d3-11ea-84a2-3996a43e98fe.gif" | width=420> <img src="https://user-images.githubusercontent.com/22610163/70389738-6bc42800-19d4-11ea-971f-f19cb5b90140.gif" | width=420>
+  <img src="https://user-images.githubusercontent.com/22610163/70389634-4682ea00-19d3-11ea-84a2-3996a43e98fe.gif" | width=410> <img src="https://user-images.githubusercontent.com/22610163/70389738-6bc42800-19d4-11ea-971f-f19cb5b90140.gif" | width=410>
 </p>
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/22610163/70389764-e9883380-19d4-11ea-8c54-80935811c3fa.gif" | width=845>
+  <img src="https://user-images.githubusercontent.com/22610163/70389764-e9883380-19d4-11ea-8c54-80935811c3fa.gif" | width=825>
 </p>
 
 - Tracking module was built on top of [this approach](https://github.com/kcg2015/Vehicle-Detection-and-Tracking).
@@ -358,6 +358,7 @@ Ahmet Özlü
 
 ## License
 This system is available under the MIT license. See the LICENSE file for more info.
+
 
 
 
