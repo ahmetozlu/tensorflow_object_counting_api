@@ -71,7 +71,6 @@ def cumulative_object_counting_x_axis(input_video, detection_graph, category_ind
                 # Visualization of the results of a detection.        
                 counter, csv_line, counting_mode = vis_util.visualize_boxes_and_labels_on_image_array_x_axis(cap.get(1),
                                                                                                              input_frame,
-                                                                                                             1,
                                                                                                              is_color_recognition_enabled,
                                                                                                              np.squeeze(boxes),
                                                                                                              np.squeeze(classes).astype(np.int32),
