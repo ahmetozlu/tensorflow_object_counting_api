@@ -295,7 +295,6 @@ def object_counting(input_video, detection_graph, category_index, is_color_recog
                 # Visualization of the results of a detection.        
                 counter, csv_line, counting_mode = vis_util.visualize_boxes_and_labels_on_image_array(cap.get(1),
                                                                                                       input_frame,
-                                                                                                      1,
                                                                                                       is_color_recognition_enabled,
                                                                                                       np.squeeze(boxes),
                                                                                                       np.squeeze(classes).astype(np.int32),
@@ -371,7 +370,6 @@ def object_counting_webcam(detection_graph, category_index, is_color_recognition
                 # Visualization of the results of a detection.        
                 counter, csv_line, counting_mode = vis_util.visualize_boxes_and_labels_on_image_array(cap.get(1),
                                                                                                       input_frame,
-                                                                                                      1,
                                                                                                       is_color_recognition_enabled,
                                                                                                       np.squeeze(boxes),
                                                                                                       np.squeeze(classes).astype(np.int32),
@@ -451,7 +449,6 @@ def targeted_object_counting(input_video, detection_graph, category_index, is_co
                 # Visualization of the results of a detection.        
                 counter, csv_line, the_result = vis_util.visualize_boxes_and_labels_on_image_array(cap.get(1),
                                                                                                       input_frame,
-                                                                                                      1,
                                                                                                       is_color_recognition_enabled,
                                                                                                       np.squeeze(boxes),
                                                                                                       np.squeeze(classes).astype(np.int32),
@@ -510,7 +507,6 @@ def single_image_object_counting(input_video, detection_graph, category_index, i
 
         # Visualization of the results of a detection.        
         counter, csv_line, counting_mode = vis_util.visualize_boxes_and_labels_on_single_image_array(1,input_frame,
-                                                                                              1,
                                                                                               is_color_recognition_enabled,
                                                                                               np.squeeze(boxes),
                                                                                               np.squeeze(classes).astype(np.int32),

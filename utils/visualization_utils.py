@@ -473,7 +473,6 @@ def draw_mask_on_image_array(image, mask, color='red', alpha=0.7):
 
 def visualize_boxes_and_labels_on_image_array(current_frame_number,
                                               image,
-                                              mode,
                                               color_recognition_status,
                                               boxes,
                                               classes,
@@ -530,7 +529,6 @@ def visualize_boxes_and_labels_on_image_array(current_frame_number,
   ROI_POSITION.insert(0,y_reference)
   DEVIATION.insert(0,deviation)
   is_object_detected = []
-  mode_number.insert(0,mode)
   is_color_recognition_enable.insert(0,color_recognition_status)
   box_to_display_str_map = collections.defaultdict(list)
   box_to_color_map = collections.defaultdict(str)
@@ -564,8 +562,7 @@ def visualize_boxes_and_labels_on_image_array(current_frame_number,
           box_to_color_map[box] = STANDARD_COLORS[
               classes[i] % len(STANDARD_COLORS)]
 
-  if(mode == 1):
-    counting_mode = ""
+  counting_mode = ""
   # Draw all boxes onto image.
   for box, color in box_to_color_map.items():
     ymin, xmin, ymax, xmax = box
@@ -578,10 +575,10 @@ def visualize_boxes_and_labels_on_image_array(current_frame_number,
         
     display_str_list=box_to_display_str_map[box]
 
-    if(mode == 1 and targeted_objects == None):
+    if(targeted_objects == None):
       counting_mode = counting_mode + str(display_str_list)
 
-    elif(mode == 1 and (display_str_list[0].split(":")[0] in targeted_objects)):
+    elif(display_str_list[0].split(":")[0] in targeted_objects):
       counting_mode = counting_mode + str(display_str_list)
 
     if ((targeted_objects != None) and (display_str_list[0].split(":")[0] in targeted_objects)):
@@ -636,15 +633,12 @@ def visualize_boxes_and_labels_on_image_array(current_frame_number,
         is_object_detected = []        
         csv_line_util = class_name + "," + csv_line 
 
-  if(mode == 1):
-    counting_mode = counting_mode.replace("['", " ").replace("']", " ").replace("%", "")
-    counting_mode = ''.join([i for i in counting_mode.replace("['", " ").replace("']", " ").replace("%", "") if not i.isdigit()])
-    counting_mode = str(custom_string_util.word_count(counting_mode))
-    counting_mode = counting_mode.replace("{", "").replace("}", "")
-    return counter, csv_line_util, counting_mode
+  counting_mode = counting_mode.replace("['", " ").replace("']", " ").replace("%", "")
+  counting_mode = ''.join([i for i in counting_mode.replace("['", " ").replace("']", " ").replace("%", "") if not i.isdigit()])
+  counting_mode = str(custom_string_util.word_count(counting_mode))
+  counting_mode = counting_mode.replace("{", "").replace("}", "")
 
-  else:
-    return counter, csv_line_util
+  return counter, csv_line_util, counting_mode
 
 def visualize_boxes_and_labels_on_image_array_x_axis(current_frame_number,
                                               image,
@@ -1129,7 +1123,6 @@ def visualize_boxes_and_labels_on_image_array_tracker(
 
 def visualize_boxes_and_labels_on_single_image_array(current_frame_number,
                                               image,
-                                              mode,
                                               color_recognition_status,
                                               boxes,
                                               classes,
@@ -1187,7 +1180,6 @@ def visualize_boxes_and_labels_on_single_image_array(current_frame_number,
   ROI_POSITION.insert(0,y_reference)
   DEVIATION.insert(0,deviation)
   is_object_detected = []
-  mode_number.insert(0,mode)
   is_color_recognition_enable.insert(0,color_recognition_status)
   box_to_display_str_map = collections.defaultdict(list)
   box_to_color_map = collections.defaultdict(str)
@@ -1221,8 +1213,7 @@ def visualize_boxes_and_labels_on_single_image_array(current_frame_number,
           box_to_color_map[box] = STANDARD_COLORS[
               classes[i] % len(STANDARD_COLORS)]
 
-  if(mode == 1):
-    counting_mode = ""
+  counting_mode = ""
   # Draw all boxes onto image.
   for box, color in box_to_color_map.items():
     ymin, xmin, ymax, xmax = box
@@ -1235,10 +1226,10 @@ def visualize_boxes_and_labels_on_single_image_array(current_frame_number,
         
     display_str_list=box_to_display_str_map[box]
 
-    if(mode == 1 and targeted_objects == None):
+    if(targeted_objects == None):
       counting_mode = counting_mode + str(display_str_list)
 
-    elif(mode == 1 and targeted_objects in display_str_list[0]):
+    elif(targeted_objects in display_str_list[0]):
       counting_mode = counting_mode + str(display_str_list)
 
     if ((targeted_objects != None) and (targeted_objects in display_str_list[0])):
@@ -1293,16 +1284,12 @@ def visualize_boxes_and_labels_on_single_image_array(current_frame_number,
         is_object_detected = []        
         csv_line_util = class_name + "," + csv_line 
 
-  if(mode == 1):
-    counting_mode = counting_mode.replace("['", " ").replace("']", " ").replace("%", "")
-    counting_mode = ''.join([i for i in counting_mode.replace("['", " ").replace("']", " ").replace("%", "") if not i.isdigit()])
-    counting_mode = str(custom_string_util.word_count(counting_mode))
-    counting_mode = counting_mode.replace("{", "").replace("}", "")
+  counting_mode = counting_mode.replace("['", " ").replace("']", " ").replace("%", "")
+  counting_mode = ''.join([i for i in counting_mode.replace("['", " ").replace("']", " ").replace("%", "") if not i.isdigit()])
+  counting_mode = str(custom_string_util.word_count(counting_mode))
+  counting_mode = counting_mode.replace("{", "").replace("}", "")
 
-    return counter, csv_line_util, counting_mode
-
-  else:
-    return counter, csv_line_util
+  return counter, csv_line_util, counting_mode
 
 def add_cdf_image_summary(values, name):
   """Adds a tf.summary.image for a CDF plot of the values.
