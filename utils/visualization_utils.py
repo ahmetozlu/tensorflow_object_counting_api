@@ -33,7 +33,7 @@ from utils.string_utils import custom_string_util
 from utils.image_utils import image_saver
 
 #  predicted_speed predicted_color module - import
-from utils.object_counting_module import object_counter
+from utils.object_counting_module import object_counter_y_axis
 #  predicted_speed predicted_color module - import
 from utils.object_counting_module import object_counter_x_axis
 
@@ -234,7 +234,7 @@ def draw_bounding_box_on_image(current_frame_number,image,
   if(x_axis[0] == 1):
     predicted_direction, is_object_detected, update_csv = object_counter_x_axis.count_objects_x_axis(top, bottom, right, left, detected_object_image, ROI_POSITION[0], ROI_POSITION[0]+DEVIATION[0], ROI_POSITION[0]+(DEVIATION[0]*2), DEVIATION[0])
   elif(y_axis[0] == 1):
-    predicted_direction, is_object_detected, update_csv = object_counter.count_objects(top, bottom, right, left, detected_object_image, ROI_POSITION[0], ROI_POSITION[0]+DEVIATION[0], ROI_POSITION[0]+(DEVIATION[0]*2), DEVIATION[0])
+    predicted_direction, is_object_detected, update_csv = object_counter_y_axis.count_objects(top, bottom, right, left, detected_object_image, ROI_POSITION[0], ROI_POSITION[0]+DEVIATION[0], ROI_POSITION[0]+(DEVIATION[0]*2), DEVIATION[0])
   elif(standalone_image[0] == 1):
     image_saver.save_image(detected_object_image) # save detected object image
 
