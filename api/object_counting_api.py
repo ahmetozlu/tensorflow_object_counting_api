@@ -27,12 +27,8 @@ def cumulative_object_counting_x_axis(input_video, detection_graph, category_ind
         output_movie = cv2.VideoWriter('the_output.avi', fourcc, fps, (width, height))
 
         total_passed_objects = 0
-        speed = "waiting..."
-        direction = "waiting..."
-        size = "waiting..."
         color = "waiting..."
         counting_mode = "..."
-        width_heigh_taken = True
         with detection_graph.as_default():
           with tf.Session(graph=detection_graph) as sess:
             # Definite input and output Tensors for detection_graph
@@ -102,7 +98,6 @@ def cumulative_object_counting_x_axis(input_video, detection_graph, category_ind
                     cv2.FONT_HERSHEY_SIMPLEX,
                     )
 
-
                 cv2.putText(
                     input_frame,
                     'ROI Line',
@@ -138,12 +133,8 @@ def cumulative_object_counting_y_axis(input_video, detection_graph, category_ind
         output_movie = cv2.VideoWriter('the_output.avi', fourcc, fps, (width, height))
 
         total_passed_objects = 0
-        speed = "waiting..."
-        direction = "waiting..."
-        size = "waiting..."
         color = "waiting..."
         counting_mode = "..."
-        width_heigh_taken = True
         with detection_graph.as_default():
           with tf.Session(graph=detection_graph) as sess:
             # Definite input and output Tensors for detection_graph
@@ -248,12 +239,8 @@ def object_counting(input_video, detection_graph, category_index, is_color_recog
         output_movie = cv2.VideoWriter('the_output.avi', fourcc, fps, (width, height))
 
         total_passed_objects = 0
-        speed = "waiting..."
-        direction = "waiting..."
-        size = "waiting..."
         color = "waiting..."
         counting_mode = "..."
-        width_heigh_taken = True
         height = 0
         width = 0
         with detection_graph.as_default():
@@ -318,15 +305,8 @@ def object_counting(input_video, detection_graph, category_index, is_color_recog
 
 def object_counting_webcam(detection_graph, category_index, is_color_recognition_enabled):
 
-        total_passed_objects = 0
-        speed = "waiting..."
-        direction = "waiting..."
-        size = "waiting..."
         color = "waiting..."
         counting_mode = "..."
-        width_heigh_taken = True
-        height = 0
-        width = 0
         with detection_graph.as_default():
           with tf.Session(graph=detection_graph) as sess:
             # Definite input and output Tensors for detection_graph
@@ -402,12 +382,8 @@ def targeted_object_counting(input_video, detection_graph, category_index, is_co
         output_movie = cv2.VideoWriter('the_output.avi', fourcc, fps, (width, height))
 
         total_passed_objects = 0
-        speed = "waiting..."
-        direction = "waiting..."
-        size = "waiting..."
         color = "waiting..."
         the_result = "..."
-        width_heigh_taken = True
         height = 0
         width = 0
         with detection_graph.as_default():
@@ -487,9 +463,7 @@ def single_image_object_counting(input_video, detection_graph, category_index, i
             # Score is shown on the result image, together with the class label.
             detection_scores = detection_graph.get_tensor_by_name('detection_scores:0')
             detection_classes = detection_graph.get_tensor_by_name('detection_classes:0')
-            num_detections = detection_graph.get_tensor_by_name('num_detections:0')            
-
-       
+            num_detections = detection_graph.get_tensor_by_name('num_detections:0')                   
 
         input_frame = cv2.imread(input_video)
 
