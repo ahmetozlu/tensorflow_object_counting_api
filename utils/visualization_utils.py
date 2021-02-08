@@ -45,8 +45,8 @@ is_object_detected = [0]
 ROI_POSITION = [0]
 DEVIATION = [0]
 is_color_recognition_enable = [0]
-mode_number = [0]
 x_axis = [0]
+y_axis = [0]
 standalone_image = [0]
 
 _TITLE_LEFT_MARGIN = 10
@@ -233,7 +233,7 @@ def draw_bounding_box_on_image(current_frame_number,image,
   '''if(bottom > ROI_POSITION): # if the object get in ROI area, object predicted_speed predicted_color algorithms are called - 200 is an arbitrary value, for my case it looks very well to set position of ROI line at y pixel 200'''
   if(x_axis[0] == 1):
     predicted_direction, is_object_detected, update_csv = object_counter_x_axis.count_objects_x_axis(top, bottom, right, left, detected_object_image, ROI_POSITION[0], ROI_POSITION[0]+DEVIATION[0], ROI_POSITION[0]+(DEVIATION[0]*2), DEVIATION[0])
-  elif(mode_number[0] == 2):
+  elif(y_axis[0] == 1):
     predicted_direction, is_object_detected, update_csv = object_counter.count_objects(top, bottom, right, left, detected_object_image, ROI_POSITION[0], ROI_POSITION[0]+DEVIATION[0], ROI_POSITION[0]+(DEVIATION[0]*2), DEVIATION[0])
   elif(standalone_image[0] == 1):
     image_saver.save_image(detected_object_image) # save detected object image
@@ -813,13 +813,12 @@ def visualize_boxes_and_labels_on_image_array_x_axis(current_frame_number,
 
 def visualize_boxes_and_labels_on_image_array_y_axis(current_frame_number,
                                               image,
-                                              mode,
                                               color_recognition_status,
                                               boxes,
                                               classes,
                                               scores,
                                               category_index,
-					      targeted_objects=None,
+					                          targeted_objects=None,
                                               y_reference=None,
                                               deviation=None,
                                               instance_masks=None,
@@ -870,7 +869,7 @@ def visualize_boxes_and_labels_on_image_array_y_axis(current_frame_number,
   ROI_POSITION.insert(0,y_reference)
   DEVIATION.insert(0,deviation)
   is_object_detected = []
-  mode_number.insert(0,mode)
+  y_axis.insert(0,1)
   is_color_recognition_enable.insert(0,color_recognition_status)
   box_to_display_str_map = collections.defaultdict(list)
   box_to_color_map = collections.defaultdict(str)
@@ -904,8 +903,7 @@ def visualize_boxes_and_labels_on_image_array_y_axis(current_frame_number,
           box_to_color_map[box] = STANDARD_COLORS[
               classes[i] % len(STANDARD_COLORS)]
 
-  if(mode == 2):
-    counting_mode = ""
+  counting_mode = ""
   # Draw all boxes onto image.
   for box, color in box_to_color_map.items():
     ymin, xmin, ymax, xmax = box
@@ -918,10 +916,10 @@ def visualize_boxes_and_labels_on_image_array_y_axis(current_frame_number,
         
     display_str_list=box_to_display_str_map[box]
 
-    if(mode == 2 and targeted_objects == None):
+    if(targeted_objects == None):
       counting_mode = counting_mode + str(display_str_list)
 
-    elif(mode == 2 and targeted_objects in display_str_list[0]):
+    elif(targeted_objects in display_str_list[0]):
       counting_mode = counting_mode + str(display_str_list)
 
     if ((targeted_objects != None) and (targeted_objects in display_str_list[0])):
@@ -976,16 +974,12 @@ def visualize_boxes_and_labels_on_image_array_y_axis(current_frame_number,
         is_object_detected = []                
         csv_line_util = class_name + "," + csv_line 
 
-  if(mode == 2):
-    counting_mode = counting_mode.replace("['", " ").replace("']", " ").replace("%", "")
-    counting_mode = ''.join([i for i in counting_mode.replace("['", " ").replace("']", " ").replace("%", "") if not i.isdigit()])
-    counting_mode = str(custom_string_util.word_count(counting_mode))
-    counting_mode = counting_mode.replace("{", "").replace("}", "")
+  counting_mode = counting_mode.replace("['", " ").replace("']", " ").replace("%", "")
+  counting_mode = ''.join([i for i in counting_mode.replace("['", " ").replace("']", " ").replace("%", "") if not i.isdigit()])
+  counting_mode = str(custom_string_util.word_count(counting_mode))
+  counting_mode = counting_mode.replace("{", "").replace("}", "")
 
-    return counter, csv_line_util, counting_mode
-
-  else:
-    return counter, csv_line_util
+  return counter, csv_line_util, counting_mode
 
 def visualize_boxes_and_labels_on_image_array_tracker(
     image,
