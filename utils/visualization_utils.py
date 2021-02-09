@@ -42,8 +42,8 @@ from utils.color_recognition_module import color_recognition_api
 
 # Variables
 is_object_detected = [0]
-ROI_POSITION = [0]
-DEVIATION = [0]
+roi_position = [0]
+deviation_value = [0]
 is_color_recognition_enable = [0]
 x_axis = [0]
 y_axis = [0]
@@ -230,11 +230,11 @@ def draw_bounding_box_on_image(current_frame_number,image,
 
   detected_object_image = image_temp[int(top):int(bottom), int(left):int(right)]
 
-  '''if(bottom > ROI_POSITION): # if the object get in ROI area, object predicted_speed predicted_color algorithms are called - 200 is an arbitrary value, for my case it looks very well to set position of ROI line at y pixel 200'''
+  '''if(bottom > roi_position): # if the object get in ROI area, object predicted_speed predicted_color algorithms are called - 200 is an arbitrary value, for my case it looks very well to set position of ROI line at y pixel 200'''
   if(x_axis[0] == 1):
-    predicted_direction, is_object_detected, update_csv = object_counter_x_axis.count_objects_x_axis(top, bottom, right, left, detected_object_image, ROI_POSITION[0], ROI_POSITION[0]+DEVIATION[0], ROI_POSITION[0]+(DEVIATION[0]*2), DEVIATION[0])
+    predicted_direction, is_object_detected, update_csv = object_counter_x_axis.count_objects_x_axis(top, bottom, right, left, detected_object_image, roi_position[0], roi_position[0]+deviation_value[0], roi_position[0]+(deviation_value[0]*2), deviation_value[0])
   elif(y_axis[0] == 1):
-    predicted_direction, is_object_detected, update_csv = object_counter_y_axis.count_objects(top, bottom, right, left, detected_object_image, ROI_POSITION[0], ROI_POSITION[0]+DEVIATION[0], ROI_POSITION[0]+(DEVIATION[0]*2), DEVIATION[0])
+    predicted_direction, is_object_detected, update_csv = object_counter_y_axis.count_objects(top, bottom, right, left, detected_object_image, roi_position[0], roi_position[0]+deviation_value[0], roi_position[0]+(deviation_value[0]*2), deviation_value[0])
   elif(standalone_image[0] == 1):
     image_saver.save_image(detected_object_image) # save detected object image
 
@@ -526,8 +526,8 @@ def visualize_boxes_and_labels_on_image_array(current_frame_number,
   # that correspond to the same location.
   csv_line_util = "not_available"
   counter = 0
-  ROI_POSITION.insert(0,y_reference)
-  DEVIATION.insert(0,deviation)
+  roi_position.insert(0,y_reference)
+  deviation_value.insert(0,deviation)
   is_object_detected = []
   is_color_recognition_enable.insert(0,color_recognition_status)
   box_to_display_str_map = collections.defaultdict(list)
@@ -695,8 +695,8 @@ def visualize_boxes_and_labels_on_image_array_x_axis(current_frame_number,
   # that correspond to the same location.
   csv_line_util = "not_available"
   counter = 0
-  ROI_POSITION.insert(0,x_reference)
-  DEVIATION.insert(0,deviation)
+  roi_position.insert(0,x_reference)
+  deviation_value.insert(0,deviation)
   x_axis.insert(0,1)
   is_object_detected = []
   is_color_recognition_enable.insert(0,color_recognition_status)
@@ -866,8 +866,8 @@ def visualize_boxes_and_labels_on_image_array_y_axis(current_frame_number,
   # that correspond to the same location.
   csv_line_util = "not_available"
   counter = 0
-  ROI_POSITION.insert(0,y_reference)
-  DEVIATION.insert(0,deviation)
+  roi_position.insert(0,y_reference)
+  deviation_value.insert(0,deviation)
   is_object_detected = []
   y_axis.insert(0,1)
   is_color_recognition_enable.insert(0,color_recognition_status)
@@ -1171,8 +1171,8 @@ def visualize_boxes_and_labels_on_single_image_array(current_frame_number,
   standalone_image.insert(0,1)
   csv_line_util = "not_available"
   counter = 0
-  ROI_POSITION.insert(0,y_reference)
-  DEVIATION.insert(0,deviation)
+  roi_position.insert(0,y_reference)
+  deviation_value.insert(0,deviation)
   is_object_detected = []
   is_color_recognition_enable.insert(0,color_recognition_status)
   box_to_display_str_map = collections.defaultdict(list)
