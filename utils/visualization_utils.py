@@ -919,10 +919,10 @@ def visualize_boxes_and_labels_on_image_array_y_axis(current_frame_number,
     if(targeted_objects == None):
       counting_mode = counting_mode + str(display_str_list)
 
-    elif(targeted_objects in display_str_list[0]):
+    elif(display_str_list[0].split(":")[0] in targeted_objects):
       counting_mode = counting_mode + str(display_str_list)
 
-    if ((targeted_objects != None) and (targeted_objects in display_str_list[0])):
+    if ((targeted_objects != None) and (display_str_list[0].split(":")[0] in targeted_objects)):
 	    if instance_masks is not None:
 	      draw_mask_on_image_array(image, box_to_instance_masks_map[box], color=color)
 	

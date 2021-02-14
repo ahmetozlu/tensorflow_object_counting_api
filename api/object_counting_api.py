@@ -119,7 +119,7 @@ def cumulative_object_counting_x_axis(input_video, detection_graph, category_ind
             cap.release()
             cv2.destroyAllWindows()
 
-def cumulative_object_counting_y_axis(input_video, detection_graph, category_index, is_color_recognition_enabled, roi, deviation, custom_object_name):
+def cumulative_object_counting_y_axis(input_video, detection_graph, category_index, is_color_recognition_enabled, roi, deviation, custom_object_name, targeted_objects=None):
         total_passed_objects = 0        
 
         # input video
@@ -178,6 +178,7 @@ def cumulative_object_counting_y_axis(input_video, detection_graph, category_ind
                                                                                                              np.squeeze(classes).astype(np.int32),
                                                                                                              np.squeeze(scores),
                                                                                                              category_index,
+                                                                                                             targeted_objects = targeted_objects,
                                                                                                              y_reference = roi,
                                                                                                              deviation = deviation,
                                                                                                              use_normalized_coordinates=True,

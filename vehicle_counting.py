@@ -17,8 +17,9 @@ input_video = "./input_images_and_videos/vehicle_survaillance.mp4"
 detection_graph, category_index = backbone.set_model('ssd_mobilenet_v1_coco_2018_01_28', 'mscoco_label_map.pbtxt')
 
 is_color_recognition_enabled = 1 # set it to 1 for enabling the color prediction for the detected objects
-roi = 185 # roi line position
-deviation = 2 # the constant that represents the object counting area
+roi = 237 # roi line position
+deviation = 4.5 # the constant that represents the object counting area
 custom_object_name = 'Vehicle' # set it to your custom object name
+targeted_objects_name = "car, truck"
 
-object_counting_api.cumulative_object_counting_y_axis(input_video, detection_graph, category_index, is_color_recognition_enabled, roi, deviation, custom_object_name) # counting all the objects
+object_counting_api.cumulative_object_counting_y_axis(input_video, detection_graph, category_index, is_color_recognition_enabled, roi, deviation, custom_object_name, targeted_objects_name) # counting all the objects
