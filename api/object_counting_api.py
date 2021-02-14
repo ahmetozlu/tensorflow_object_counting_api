@@ -28,7 +28,6 @@ def cumulative_object_counting_x_axis(input_video, detection_graph, category_ind
 
         total_passed_objects = 0
         color = "waiting..."
-        counting_mode = "..."
         with detection_graph.as_default():
           with tf.Session(graph=detection_graph) as sess:
             # Definite input and output Tensors for detection_graph
@@ -65,7 +64,7 @@ def cumulative_object_counting_x_axis(input_video, detection_graph, category_ind
                 font = cv2.FONT_HERSHEY_SIMPLEX
 
                 # Visualization of the results of a detection.        
-                counter, csv_line, counting_mode = vis_util.visualize_boxes_and_labels_on_image_array_x_axis(cap.get(1),
+                counter, csv_line, counting_result = vis_util.visualize_boxes_and_labels_on_image_array_x_axis(cap.get(1),
                                                                                                              input_frame,
                                                                                                              is_color_recognition_enabled,
                                                                                                              np.squeeze(boxes),
@@ -134,7 +133,6 @@ def cumulative_object_counting_y_axis(input_video, detection_graph, category_ind
 
         total_passed_objects = 0
         color = "waiting..."
-        counting_mode = "..."
         with detection_graph.as_default():
           with tf.Session(graph=detection_graph) as sess:
             # Definite input and output Tensors for detection_graph
@@ -171,7 +169,7 @@ def cumulative_object_counting_y_axis(input_video, detection_graph, category_ind
                 font = cv2.FONT_HERSHEY_SIMPLEX
 
                # Visualization of the results of a detection.        
-                counter, csv_line, counting_mode = vis_util.visualize_boxes_and_labels_on_image_array_y_axis(cap.get(1),
+                counter, csv_line, counting_result = vis_util.visualize_boxes_and_labels_on_image_array_y_axis(cap.get(1),
                                                                                                              input_frame,
                                                                                                              is_color_recognition_enabled,
                                                                                                              np.squeeze(boxes),
@@ -241,7 +239,6 @@ def object_counting(input_video, detection_graph, category_index, is_color_recog
 
         total_passed_objects = 0
         color = "waiting..."
-        counting_mode = "..."
         height = 0
         width = 0
         with detection_graph.as_default():
@@ -280,7 +277,7 @@ def object_counting(input_video, detection_graph, category_index, is_color_recog
                 font = cv2.FONT_HERSHEY_SIMPLEX
 
                 # Visualization of the results of a detection.        
-                counter, csv_line, counting_mode = vis_util.visualize_boxes_and_labels_on_image_array(cap.get(1),
+                counter, csv_line, counting_result = vis_util.visualize_boxes_and_labels_on_image_array(cap.get(1),
                                                                                                       input_frame,
                                                                                                       is_color_recognition_enabled,
                                                                                                       np.squeeze(boxes),
@@ -289,10 +286,10 @@ def object_counting(input_video, detection_graph, category_index, is_color_recog
                                                                                                       category_index,
                                                                                                       use_normalized_coordinates=True,
                                                                                                       line_thickness=4)
-                if(len(counting_mode) == 0):
+                if(len(counting_result) == 0):
                     cv2.putText(input_frame, "...", (10, 35), font, 0.8, (0,255,255),2,cv2.FONT_HERSHEY_SIMPLEX)                       
                 else:
-                    cv2.putText(input_frame, counting_mode, (10, 35), font, 0.8, (0,255,255),2,cv2.FONT_HERSHEY_SIMPLEX)
+                    cv2.putText(input_frame, counting_result, (10, 35), font, 0.8, (0,255,255),2,cv2.FONT_HERSHEY_SIMPLEX)
                 
                 output_movie.write(input_frame)
                 print ("writing frame")
@@ -307,7 +304,6 @@ def object_counting(input_video, detection_graph, category_index, is_color_recog
 def object_counting_webcam(detection_graph, category_index, is_color_recognition_enabled):
 
         color = "waiting..."
-        counting_mode = "..."
         with detection_graph.as_default():
           with tf.Session(graph=detection_graph) as sess:
             # Definite input and output Tensors for detection_graph
@@ -348,7 +344,7 @@ def object_counting_webcam(detection_graph, category_index, is_color_recognition
                 font = cv2.FONT_HERSHEY_SIMPLEX
 
                 # Visualization of the results of a detection.        
-                counter, csv_line, counting_mode = vis_util.visualize_boxes_and_labels_on_image_array(cap.get(1),
+                counter, csv_line, counting_result = vis_util.visualize_boxes_and_labels_on_image_array(cap.get(1),
                                                                                                       input_frame,
                                                                                                       is_color_recognition_enabled,
                                                                                                       np.squeeze(boxes),
@@ -357,10 +353,10 @@ def object_counting_webcam(detection_graph, category_index, is_color_recognition
                                                                                                       category_index,
                                                                                                       use_normalized_coordinates=True,
                                                                                                       line_thickness=4)
-                if(len(counting_mode) == 0):
+                if(len(counting_result) == 0):
                     cv2.putText(input_frame, "...", (10, 35), font, 0.8, (0,255,255),2,cv2.FONT_HERSHEY_SIMPLEX)                       
                 else:
-                    cv2.putText(input_frame, counting_mode, (10, 35), font, 0.8, (0,255,255),2,cv2.FONT_HERSHEY_SIMPLEX)
+                    cv2.putText(input_frame, counting_result, (10, 35), font, 0.8, (0,255,255),2,cv2.FONT_HERSHEY_SIMPLEX)
                 
                 cv2.imshow('object counting',input_frame)
 
@@ -451,7 +447,6 @@ def targeted_object_counting(input_video, detection_graph, category_index, is_co
 
 def single_image_object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled):     
         color = "waiting..."
-        counting_mode = "..."
         with detection_graph.as_default():
           with tf.Session(graph=detection_graph) as sess:
             # Definite input and output Tensors for detection_graph
@@ -480,7 +475,7 @@ def single_image_object_counting(input_video, detection_graph, category_index, i
         font = cv2.FONT_HERSHEY_SIMPLEX
 
         # Visualization of the results of a detection.        
-        counter, csv_line, counting_mode = vis_util.visualize_boxes_and_labels_on_single_image_array(1,input_frame,
+        counter, csv_line, counting_result = vis_util.visualize_boxes_and_labels_on_single_image_array(1,input_frame,
                                                                                               is_color_recognition_enabled,
                                                                                               np.squeeze(boxes),
                                                                                               np.squeeze(classes).astype(np.int32),
@@ -488,12 +483,12 @@ def single_image_object_counting(input_video, detection_graph, category_index, i
                                                                                               category_index,
                                                                                               use_normalized_coordinates=True,
                                                                                               line_thickness=4)
-        if(len(counting_mode) == 0):
+        if(len(counting_result) == 0):
             cv2.putText(input_frame, "...", (10, 35), font, 0.8, (0,255,255),2,cv2.FONT_HERSHEY_SIMPLEX)                       
         else:
-            cv2.putText(input_frame, counting_mode, (10, 35), font, 0.8, (0,255,255),2,cv2.FONT_HERSHEY_SIMPLEX)
+            cv2.putText(input_frame, counting_result, (10, 35), font, 0.8, (0,255,255),2,cv2.FONT_HERSHEY_SIMPLEX)
         
         cv2.imshow('tensorflow_object counting_api',input_frame)        
         cv2.waitKey(0)
 
-        return counting_mode
+        return counting_result
