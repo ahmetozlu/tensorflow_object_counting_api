@@ -562,7 +562,7 @@ def visualize_boxes_and_labels_on_image_array(current_frame_number,
           box_to_color_map[box] = STANDARD_COLORS[
               classes[i] % len(STANDARD_COLORS)]
 
-  counting_mode = ""
+  counting_result = ""
   # Draw all boxes onto image.
   for box, color in box_to_color_map.items():
     ymin, xmin, ymax, xmax = box
@@ -576,10 +576,10 @@ def visualize_boxes_and_labels_on_image_array(current_frame_number,
     display_str_list=box_to_display_str_map[box]
 
     if(targeted_objects == None):
-      counting_mode = counting_mode + str(display_str_list)
+      counting_result = counting_result + str(display_str_list)
 
     elif(display_str_list[0].split(":")[0] in targeted_objects):
-      counting_mode = counting_mode + str(display_str_list)
+      counting_result = counting_result + str(display_str_list)
 
     if ((targeted_objects != None) and (display_str_list[0].split(":")[0] in targeted_objects)):
             if instance_masks is not None:
@@ -633,12 +633,12 @@ def visualize_boxes_and_labels_on_image_array(current_frame_number,
         is_object_detected = []        
         csv_line_util = class_name + "," + csv_line 
 
-  counting_mode = counting_mode.replace("['", " ").replace("']", " ").replace("%", "")
-  counting_mode = ''.join([i for i in counting_mode.replace("['", " ").replace("']", " ").replace("%", "") if not i.isdigit()])
-  counting_mode = str(custom_string_util.word_count(counting_mode))
-  counting_mode = counting_mode.replace("{", "").replace("}", "")
+  counting_result = counting_result.replace("['", " ").replace("']", " ").replace("%", "")
+  counting_result = ''.join([i for i in counting_result.replace("['", " ").replace("']", " ").replace("%", "") if not i.isdigit()])
+  counting_result = str(custom_string_util.word_count(counting_result))
+  counting_result = counting_result.replace("{", "").replace("}", "")
 
-  return counter, csv_line_util, counting_mode
+  return counter, csv_line_util, counting_result
 
 def visualize_boxes_and_labels_on_image_array_x_axis(current_frame_number,
                                               image,
@@ -733,7 +733,7 @@ def visualize_boxes_and_labels_on_image_array_x_axis(current_frame_number,
               classes[i] % len(STANDARD_COLORS)]
 
 
-  counting_mode = ""
+  counting_result = ""
   # Draw all boxes onto image.
   for box, color in box_to_color_map.items():
     ymin, xmin, ymax, xmax = box
@@ -747,10 +747,10 @@ def visualize_boxes_and_labels_on_image_array_x_axis(current_frame_number,
     display_str_list=box_to_display_str_map[box]
 
     if(targeted_objects == None):
-      counting_mode = counting_mode + str(display_str_list)
+      counting_result = counting_result + str(display_str_list)
 
     elif(targeted_objects in display_str_list[0]):
-      counting_mode = counting_mode + str(display_str_list)
+      counting_result = counting_result + str(display_str_list)
 
     if ((targeted_objects != None) and (targeted_objects in display_str_list[0])):
             if instance_masks is not None:
@@ -804,12 +804,12 @@ def visualize_boxes_and_labels_on_image_array_x_axis(current_frame_number,
         is_object_detected = []        
         csv_line_util = class_name + "," + csv_line 
 
-  counting_mode = counting_mode.replace("['", " ").replace("']", " ").replace("%", "")
-  counting_mode = ''.join([i for i in counting_mode.replace("['", " ").replace("']", " ").replace("%", "") if not i.isdigit()])
-  counting_mode = str(custom_string_util.word_count(counting_mode))
-  counting_mode = counting_mode.replace("{", "").replace("}", "")
+  counting_result = counting_result.replace("['", " ").replace("']", " ").replace("%", "")
+  counting_result = ''.join([i for i in counting_result.replace("['", " ").replace("']", " ").replace("%", "") if not i.isdigit()])
+  counting_result = str(custom_string_util.word_count(counting_result))
+  counting_result = counting_result.replace("{", "").replace("}", "")
 
-  return counter, csv_line_util, counting_mode
+  return counter, csv_line_util, counting_result
 
 def visualize_boxes_and_labels_on_image_array_y_axis(current_frame_number,
                                               image,
@@ -903,7 +903,7 @@ def visualize_boxes_and_labels_on_image_array_y_axis(current_frame_number,
           box_to_color_map[box] = STANDARD_COLORS[
               classes[i] % len(STANDARD_COLORS)]
 
-  counting_mode = ""
+  counting_result = ""
   # Draw all boxes onto image.
   for box, color in box_to_color_map.items():
     ymin, xmin, ymax, xmax = box
@@ -917,10 +917,10 @@ def visualize_boxes_and_labels_on_image_array_y_axis(current_frame_number,
     display_str_list=box_to_display_str_map[box]
 
     if(targeted_objects == None):
-      counting_mode = counting_mode + str(display_str_list)
+      counting_result = counting_result + str(display_str_list)
 
     elif(display_str_list[0].split(":")[0] in targeted_objects):
-      counting_mode = counting_mode + str(display_str_list)
+      counting_result = counting_result + str(display_str_list)
 
     if ((targeted_objects != None) and (display_str_list[0].split(":")[0] in targeted_objects)):
 	    if instance_masks is not None:
@@ -974,12 +974,12 @@ def visualize_boxes_and_labels_on_image_array_y_axis(current_frame_number,
         is_object_detected = []                
         csv_line_util = class_name + "," + csv_line 
 
-  counting_mode = counting_mode.replace("['", " ").replace("']", " ").replace("%", "")
-  counting_mode = ''.join([i for i in counting_mode.replace("['", " ").replace("']", " ").replace("%", "") if not i.isdigit()])
-  counting_mode = str(custom_string_util.word_count(counting_mode))
-  counting_mode = counting_mode.replace("{", "").replace("}", "")
+  counting_result = counting_result.replace("['", " ").replace("']", " ").replace("%", "")
+  counting_result = ''.join([i for i in counting_result.replace("['", " ").replace("']", " ").replace("%", "") if not i.isdigit()])
+  counting_result = str(custom_string_util.word_count(counting_result))
+  counting_result = counting_result.replace("{", "").replace("}", "")
 
-  return counter, csv_line_util, counting_mode
+  return counter, csv_line_util, counting_result
 
 def visualize_boxes_and_labels_on_image_array_tracker(
     image,
@@ -1207,7 +1207,7 @@ def visualize_boxes_and_labels_on_single_image_array(current_frame_number,
           box_to_color_map[box] = STANDARD_COLORS[
               classes[i] % len(STANDARD_COLORS)]
 
-  counting_mode = ""
+  counting_result = ""
   # Draw all boxes onto image.
   for box, color in box_to_color_map.items():
     ymin, xmin, ymax, xmax = box
@@ -1221,10 +1221,10 @@ def visualize_boxes_and_labels_on_single_image_array(current_frame_number,
     display_str_list=box_to_display_str_map[box]
 
     if(targeted_objects == None):
-      counting_mode = counting_mode + str(display_str_list)
+      counting_result = counting_result + str(display_str_list)
 
     elif(targeted_objects in display_str_list[0]):
-      counting_mode = counting_mode + str(display_str_list)
+      counting_result = counting_result + str(display_str_list)
 
     if ((targeted_objects != None) and (targeted_objects in display_str_list[0])):
             if instance_masks is not None:
@@ -1278,12 +1278,12 @@ def visualize_boxes_and_labels_on_single_image_array(current_frame_number,
         is_object_detected = []        
         csv_line_util = class_name + "," + csv_line 
 
-  counting_mode = counting_mode.replace("['", " ").replace("']", " ").replace("%", "")
-  counting_mode = ''.join([i for i in counting_mode.replace("['", " ").replace("']", " ").replace("%", "") if not i.isdigit()])
-  counting_mode = str(custom_string_util.word_count(counting_mode))
-  counting_mode = counting_mode.replace("{", "").replace("}", "")
+  counting_result = counting_result.replace("['", " ").replace("']", " ").replace("%", "")
+  counting_result = ''.join([i for i in counting_result.replace("['", " ").replace("']", " ").replace("%", "") if not i.isdigit()])
+  counting_result = str(custom_string_util.word_count(counting_result))
+  counting_result = counting_result.replace("{", "").replace("}", "")
 
-  return counter, csv_line_util, counting_mode
+  return counter, csv_line_util, counting_result
 
 def add_cdf_image_summary(values, name):
   """Adds a tf.summary.image for a CDF plot of the values.
