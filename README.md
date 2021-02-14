@@ -323,7 +323,7 @@ TensorFlow Object Detection API have to be installed to run TensorFlow Object Co
 ## Citation
 If you use this code for your publications, please cite it as:
 
-    @ONLINE{tfocapi,
+    @ONLINE{
         author = "Ahmet Özlü",
         title  = "TensorFlow Object Counting API",
         year   = "2018",
