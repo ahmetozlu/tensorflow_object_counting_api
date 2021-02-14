@@ -113,7 +113,7 @@ More info can be found in [**here**](https://github.com/ahmetozlu/tensorflow_obj
 
 *Usage of "Cumulative Counting Mode" for the "vehicle counting" case:*
 
-    is_color_recognition_enabled = False # set it to true for enabling the color prediction for the detected objects
+    is_color_recognition_enabled = True # set it to true for enabling the color prediction for the detected objects
     roi = 200 # roi line position
     deviation = 3 # the constant that represents the object counting area
 
