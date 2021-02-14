@@ -91,14 +91,11 @@ More info can be found in [**here**](https://github.com/ahmetozlu/tensorflow_obj
 
 *Usage of "Cumulative Counting Mode" for the "pedestrian counting" case:*
 
-    fps = 30 # change it with your input video fps
-    width = 626 # change it with your input video width
-    height = 360 # change it with your input vide height
-    is_color_recognition_enabled = 0 # set it to 1 for enabling the color prediction for the detected objects
+    is_color_recognition_enabled = False # set it to true for enabling the color prediction for the detected objects
     roi = 385 # roi line position
     deviation = 1 # the constant that represents the object counting area
 
-    object_counting_api.cumulative_object_counting_x_axis(input_video, detection_graph, category_index, is_color_recognition_enabled, fps, width, height, roi, deviation) # counting all the objects
+    object_counting_api.cumulative_object_counting_x_axis(input_video, detection_graph, category_index, is_color_recognition_enabled, roi, deviation) # counting all the objects
     
 *Result of the "pedestrian counting" case:*
  
@@ -116,14 +113,11 @@ More info can be found in [**here**](https://github.com/ahmetozlu/tensorflow_obj
 
 *Usage of "Cumulative Counting Mode" for the "vehicle counting" case:*
 
-    fps = 24 # change it with your input video fps
-    width = 640 # change it with your input video width
-    height = 352 # change it with your input vide height
-    is_color_recognition_enabled = 0 # set it to 1 for enabling the color prediction for the detected objects
+    is_color_recognition_enabled = False # set it to true for enabling the color prediction for the detected objects
     roi = 200 # roi line position
     deviation = 3 # the constant that represents the object counting area
 
-    object_counting_api.cumulative_object_counting_y_axis(input_video, detection_graph, category_index, is_color_recognition_enabled, fps, width, height, roi, deviation) # counting all the objects
+    object_counting_api.cumulative_object_counting_y_axis(input_video, detection_graph, category_index, is_color_recognition_enabled, roi, deviation) # counting all the objects
     
 *Result of the "vehicle counting" case:*
  
@@ -143,13 +137,10 @@ More info can be found in [**here**](https://github.com/ahmetozlu/tensorflow_obj
  
  *Usage of "the targeted object is bicycle":*
  
-    is_color_recognition_enabled = 0 # set it to 1 for enabling the color prediction for the detected objects
-    targeted_objects = "bicycle"
-    fps = 24 # change it with your input video fps
-    width = 854 # change it with your input video width
-    height = 480 # change it with your input vide height    
+    is_color_recognition_enabled = False # set it to true for enabling the color prediction for the detected objects
+    targeted_objects = "bicycle" 
 
-    object_counting_api.targeted_object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled, targeted_objects, fps, width, height) # targeted objects counting
+    object_counting_api.targeted_object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled, targeted_objects) # targeted objects counting
     
  *Result of "the targeted object is bicycle":*
  
@@ -159,13 +150,10 @@ More info can be found in [**here**](https://github.com/ahmetozlu/tensorflow_obj
 
 *Usage of "the targeted object is person":*
 
-    is_color_recognition_enabled = 0 # set it to 1 for enabling the color prediction for the detected objects
+    is_color_recognition_enabled = False # set it to true for enabling the color prediction for the detected objects
     targeted_objects = "person"
-    fps = 24 # change it with your input video fps
-    width = 854 # change it with your input video width
-    height = 480 # change it with your input vide height    
 
-    object_counting_api.targeted_object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled, targeted_objects, fps, width, height) # targeted objects counting
+    object_counting_api.targeted_object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled, targeted_objects) # targeted objects counting
  
  *Result of "the targeted object is person":*
 
@@ -175,12 +163,9 @@ More info can be found in [**here**](https://github.com/ahmetozlu/tensorflow_obj
 
 *Usage of "detecting, counting and tracking all the objects":*
 
-    is_color_prediction_enabled = 0 # set it to 1 for enabling the color prediction for the detected objects
-    fps = 24 # change it with your input video fps
-    width = 854 # change it with your input video width
-    height = 480 # change it with your input vide height    
+    is_color_recognition_enabled = False # set it to true for enabling the color prediction for the detected objects
 
-    object_counting_api.object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled, fps, width, height) # counting all the objects
+    object_counting_api.object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled) # counting all the objects
  
  *Result of "detecting, counting and tracking all the objects":*
 
@@ -192,24 +177,18 @@ More info can be found in [**here**](https://github.com/ahmetozlu/tensorflow_obj
 *Usage of "detecting, counting and tracking **the multiple targeted objects**":*
 
     targeted_objects = "person, bicycle" # (for counting targeted objects) change it with your targeted objects
-    fps = 25 # change it with your input video fps
-    width = 1280 # change it with your input video width
-    height = 720 # change it with your input video height
-    is_color_recognition_enabled = 0
+    is_color_recognition_enabled = False # set it to true for enabling the color prediction for the detected objects
 
-    object_counting_api.targeted_object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled, targeted_objects, fps, width, height) # targeted objects counting
+    object_counting_api.targeted_object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled, targeted_objects) # targeted objects counting
 ---
  
 #### 2.2) For detecting, tracking and counting "all the objects with disabled color prediction"
 
 *Usage of detecting, counting and tracking "all the objects with disabled color prediction":*
     
-    is_color_prediction_enabled = 0 # set it to 1 for enabling the color prediction for the detected objects
-    fps = 24 # change it with your input video fps
-    width = 854 # change it with your input video width
-    height = 480 # change it with your input vide height    
+    is_color_recognition_enabled = False # set it to true for enabling the color prediction for the detected objects
 
-    object_counting_api.object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled, fps, width, height) # counting all the objects
+    object_counting_api.object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled) # counting all the objects
     
  *Result of detecting, counting and tracking "all the objects with disabled color prediction":*
 
@@ -220,12 +199,9 @@ More info can be found in [**here**](https://github.com/ahmetozlu/tensorflow_obj
 
 *Usage of detecting, counting and tracking "all the objects with enabled color prediction":*
 
-    is_color_prediction_enabled = 1 # set it to 1 for enabling the color prediction for the detected objects
-    fps = 24 # change it with your input video fps
-    width = 854 # change it with your input video width
-    height = 480 # change it with your input vide height    
+    is_color_recognition_enabled = True # set it to true for enabling the color prediction for the detected objects
 
-    object_counting_api.object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled, fps, width, height) # counting all the objects
+    object_counting_api.object_counting(input_video, detection_graph, category_index, is_color_recognition_enabled) # counting all the objects
     
  *Result of detecting, counting and tracking "all the objects with enabled color prediction":*
 
@@ -359,12 +335,3 @@ Ahmet Özlü
 
 ## License
 This system is available under the MIT license. See the LICENSE file for more info.
-
-
-
-
-
-
-
-
-

@@ -238,7 +238,7 @@ def draw_bounding_box_on_image(current_frame_number,image,
   elif(standalone_image[0] == 1):
     image_saver.save_image(detected_object_image) # save detected object image
 
-  if(1 in is_color_recognition_enable):
+  if(is_color_recognition_enable[0]):
     predicted_color = color_recognition_api.color_recognition(detected_object_image)    
   
   try:
@@ -249,7 +249,7 @@ def draw_bounding_box_on_image(current_frame_number,image,
   # If the total height of the display strings added to the top of the bounding
   # box exceeds the top of the image, stack the strings below the bounding box
   # instead of above.
-  if(1 in is_color_recognition_enable):
+  if(is_color_recognition_enable[0]):
     display_str_list[0] = predicted_color + " " + display_str_list[0]
     csv_line = predicted_color + "," + str (predicted_direction) # csv line created
   else:
