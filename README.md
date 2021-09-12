@@ -324,7 +324,7 @@ TensorFlow Object Detection API have to be installed to run TensorFlow Object Co
 
 ### Important: Compatibility problems caused by TensorFlow2 version.
 
-This project developed with TensorFlow 1.5.0 version. If you need to run this project with TensorFlow 2.x version, just replace *tensorflow imports* with *tensorflow.compat.v1*, and add *tf.disable_v2_behavior* that's all. 
+This project developed with TensorFlow 1.5.0 version. If you need to run this project with TensorFlow 2.x version, just replace tensorflow imports with tensorflow.compat.v1, and add tf.disable_v2_behavior that's all. 
 
 Instead of this import statement:
 
