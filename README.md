@@ -304,6 +304,9 @@ Demo video of the project is available on [My YouTube Channel](https://www.youtu
 Tensorflow Object Counting API depends on the following libraries (see [requirements.txt]()):
 
 - TensorFlow Object Detection API
+- **tensorflow==1.5.0
+- **keras==2.0.8
+- **opencv-python==4.4.0.42
 - Protobuf 3.0.0
 - Python-tk
 - Pillow 1.0
@@ -311,7 +314,6 @@ Tensorflow Object Counting API depends on the following libraries (see [requirem
 - tf Slim (which is included in the "tensorflow/models/research/" checkout)
 - Jupyter notebook
 - Matplotlib
-- Tensorflow
 - Cython
 - contextlib2
 - cocoapi
