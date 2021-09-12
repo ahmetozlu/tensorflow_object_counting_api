@@ -301,7 +301,7 @@ Demo video of the project is available on [My YouTube Channel](https://www.youtu
 
 ### Dependencies
 
-Tensorflow Object Counting API depends on the following libraries:
+Tensorflow Object Counting API depends on the following libraries (see [requirements.txt]()):
 
 - TensorFlow Object Detection API
 - Protobuf 3.0.0
@@ -319,6 +319,19 @@ Tensorflow Object Counting API depends on the following libraries:
 For detailed steps to install Tensorflow, follow the [Tensorflow installation instructions](https://www.tensorflow.org/install/). 
 
 TensorFlow Object Detection API have to be installed to run TensorFlow Object Counting API, for more information, please see [this](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md).
+
+### Important: Compatibility problems caused by TensorFlow2 version.
+
+This project developed with TensorFlow 1.15.0 version. If you need to run it with TensorFlow 2.x version, just replace tensorflow imports with tensorflow.compat.v1, and add tf.disable_v2_behavior thats all. 
+
+Instead of this import statement:
+
+    import tensorflow
+
+use this:
+
+    import tensorflow.compat.v1 as tf
+    tf.disable_v2_behavior()
 
 ## Citation
 If you use this code for your publications, please cite it as:
