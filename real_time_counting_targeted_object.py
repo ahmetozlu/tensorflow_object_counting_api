@@ -5,7 +5,8 @@
 #----------------------------------------------
 
 # Imports
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 # Object detection imports
 from utils import backbone

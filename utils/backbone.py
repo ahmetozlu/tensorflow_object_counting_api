@@ -1,5 +1,7 @@
 import glob, os, tarfile, urllib
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+
 from utils import label_map_util
 
 def set_model(model_name, label_name):
